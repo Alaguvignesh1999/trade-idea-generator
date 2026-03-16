@@ -71,7 +71,8 @@ def load_constituents(settings: Settings, market_name: str) -> pd.DataFrame:
     path = _cache_file(settings, f"constituents__{market_name}")
     if path.exists():
         return pd.read_pickle(path)
-    table = pd.read_csv(universe["constituents_url"])
+    constituents_source = universe.get("constituents_path") or universe["constituents_url"]
+    table = pd.read_csv(constituents_source)
     rename_map = {
         universe.get("symbol_column", "Symbol"): "Symbol",
         universe.get("name_column", "Name"): "Name",
