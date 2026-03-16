@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Literata, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Sans, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 
 import "./globals.css";
 
@@ -8,9 +8,15 @@ const headline = Space_Grotesk({
   variable: "--font-headline",
 });
 
-const body = Literata({
+const body = IBM_Plex_Sans({
   subsets: ["latin"],
   variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
+});
+
+const data = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-data",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +27,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${headline.variable} ${body.variable}`} style={{ fontFamily: "var(--font-body)" }}>
+      <body className={`${headline.variable} ${body.variable} ${data.variable}`} style={{ fontFamily: "var(--font-body)" }}>
         {children}
       </body>
     </html>

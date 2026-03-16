@@ -87,6 +87,7 @@ class Snapshot:
     risk_budget: dict[str, Any]
     entry_plans: list[dict[str, Any]]
     metadata: dict[str, Any]
+    research: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

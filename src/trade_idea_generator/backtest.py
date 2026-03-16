@@ -5,7 +5,7 @@ import pandas as pd
 from .config import Settings
 from .features import compute_index_features
 from .models import BacktestResult
-from .ranking import setup_masks
+from .ranking import setup_catalog, setup_masks
 from .utils import safe_float
 
 
@@ -54,21 +54,88 @@ def _simulate_trades(index_features: pd.DataFrame, entries: pd.Series, direction
 
 def _summarize_trades(trades: list[dict[str, float | str]]) -> dict[str, float]:
     if not trades:
-        return {"trades": 0.0, "win_rate": 0.0, "average_return": 0.0, "median_return": 0.0, "cumulative_return": 0.0, "max_drawdown": 0.0}
+        return {
+            "trades": 0.0,
+            "win_rate": 0.0,
+            "average_return": 0.0,
+            "median_return": 0.0,
+            "cumulative_return": 0.0,
+            "max_drawdown": 0.0,
+            "expectancy": 0.0,
+            "profit_factor": 0.0,
+            "average_win": 0.0,
+            "average_loss": 0.0,
+            "payoff_ratio": 0.0,
+            "average_holding_days": 0.0,
+            "target_rate": 0.0,
+            "stop_rate": 0.0,
+            "time_exit_rate": 0.0,
+        }
     returns = pd.Series([float(trade["net_return"]) for trade in trades])
     curve = (1 + returns).cumprod()
     drawdown = curve / curve.cummax() - 1.0
-    return {"trades": float(len(trades)), "win_rate": float((returns > 0).mean()), "average_return": float(returns.mean()), "median_return": float(returns.median()), "cumulative_return": float(curve.iloc[-1] - 1.0), "max_drawdown": float(drawdown.min())}
+    wins = returns[returns > 0]
+    losses = returns[returns <= 0]
+    average_win = float(wins.mean()) if not wins.empty else 0.0
+    average_loss = float(losses.mean()) if not losses.empty else 0.0
+    total_gains = float(wins.sum()) if not wins.empty else 0.0
+    total_losses = float(losses.sum()) if not losses.empty else 0.0
+    outcomes = pd.Series([str(trade["outcome"]) for trade in trades])
+    holding_days = pd.Series([float(trade["holding_days"]) for trade in trades])
+    profit_factor = total_gains / abs(total_losses) if total_losses < 0 else 10.0 if total_gains > 0 else 0.0
+    payoff_ratio = average_win / abs(average_loss) if average_loss < 0 else 10.0 if average_win > 0 else 0.0
+    return {
+        "trades": float(len(trades)),
+        "win_rate": float((returns > 0).mean()),
+        "average_return": float(returns.mean()),
+        "median_return": float(returns.median()),
+        "cumulative_return": float(curve.iloc[-1] - 1.0),
+        "max_drawdown": float(drawdown.min()),
+        "expectancy": float(returns.mean()),
+        "profit_factor": float(profit_factor) if pd.notna(profit_factor) else 0.0,
+        "average_win": average_win,
+        "average_loss": average_loss,
+        "payoff_ratio": float(payoff_ratio) if pd.notna(payoff_ratio) else 0.0,
+        "average_holding_days": float(holding_days.mean()) if not holding_days.empty else 0.0,
+        "target_rate": float((outcomes == "target").mean()),
+        "stop_rate": float((outcomes == "stop").mean()),
+        "time_exit_rate": float((outcomes == "time_exit").mean()),
+    }
 
 
-def run_backtest(close: pd.Series, settings: Settings, market_name: str) -> BacktestResult:
+def _buy_and_hold_summary(close: pd.Series, total_cost: float) -> dict[str, float]:
+    aligned = close.dropna()
+    if len(aligned) < 2:
+        return {
+            "buy_hold_return": 0.0,
+            "buy_hold_annualized_return": 0.0,
+            "buy_hold_max_drawdown": 0.0,
+            "buy_hold_volatility_ann": 0.0,
+        }
+    returns = aligned.pct_change().dropna()
+    gross = float(aligned.iloc[-1] / aligned.iloc[0] - 1.0)
+    net = gross - total_cost
+    years = max(len(aligned) / 252.0, 1 / 252.0)
+    annualized = float((aligned.iloc[-1] / aligned.iloc[0]) ** (1 / years) - 1.0)
+    curve = aligned / aligned.iloc[0]
+    drawdown = curve / curve.cummax() - 1.0
+    return {
+        "buy_hold_return": net,
+        "buy_hold_annualized_return": annualized,
+        "buy_hold_max_drawdown": float(drawdown.min()),
+        "buy_hold_volatility_ann": float(returns.std() * (252 ** 0.5)) if not returns.empty else 0.0,
+    }
+
+
+def run_backtest(close: pd.Series, settings: Settings, market_name: str, breadth: dict[str, pd.Series] | None = None) -> BacktestResult:
     index_features = compute_index_features(close, settings)
-    masks = setup_masks(index_features, settings)
+    masks = setup_masks(index_features, settings, breadth=breadth)
     holding_period = int(settings.backtest["holding_period_days"])
     minimum_gap_days = int(settings.backtest["minimum_gap_days"])
     transaction_cost_bps = float(settings.backtest["transaction_cost_bps"])
     slippage_bps = float(settings.backtest["slippage_bps"])
-    setup_definitions = [("trend_pullback_long", "LONG"), ("breakout_continuation_long", "LONG"), ("oversold_bounce_long", "LONG"), ("trend_failure_short", "SHORT")]
+    total_cost = (transaction_cost_bps + slippage_bps) / 10000.0
+    setup_definitions = setup_catalog()
     breakdowns = []
     all_trades: list[dict[str, float | str]] = []
     for setup_key, direction in setup_definitions:
@@ -77,4 +144,27 @@ def run_backtest(close: pd.Series, settings: Settings, market_name: str) -> Back
         breakdowns.append({"setup_key": setup_key, "direction": direction, "summary_metrics": {key: round(value, 6) for key, value in summary.items()}, "trades": trades[:25]})
         all_trades.extend(trades)
     summary_metrics = {key: round(value, 6) for key, value in _summarize_trades(all_trades).items()}
-    return BacktestResult(market=market_name, strategy_version=settings.strategy_version, config_version=settings.config_version, test_window={"start": str(index_features.index.min().date()) if not index_features.empty else "", "end": str(index_features.index.max().date()) if not index_features.empty else ""}, entry_rule="Enter next session after a setup fires using the standardized setup definitions.", exit_rule=f"Exit on target, stop, or after {holding_period} trading days, whichever comes first.", cost_assumptions={"transaction_cost_bps": transaction_cost_bps, "slippage_bps": slippage_bps}, summary_metrics=summary_metrics, setup_breakdowns=breakdowns, metadata={"minimum_gap_days": minimum_gap_days, "setup_count": len(setup_definitions)})
+    benchmark = _buy_and_hold_summary(close, total_cost)
+    summary_metrics["benchmark_buy_hold_return"] = round(benchmark["buy_hold_return"], 6)
+    summary_metrics["excess_return_vs_buy_hold"] = round(summary_metrics["cumulative_return"] - benchmark["buy_hold_return"], 6)
+    direction_breakdowns = {
+        direction: {key: round(value, 6) for key, value in _summarize_trades([trade for trade in all_trades if trade["direction"] == direction]).items()}
+        for direction in {"LONG", "SHORT"}
+    }
+    return BacktestResult(
+        market=market_name,
+        strategy_version=settings.strategy_version,
+        config_version=settings.config_version,
+        test_window={"start": str(index_features.index.min().date()) if not index_features.empty else "", "end": str(index_features.index.max().date()) if not index_features.empty else ""},
+        entry_rule="Enter next session after a setup fires using the standardized setup definitions.",
+        exit_rule=f"Exit on target, stop, or after {holding_period} trading days, whichever comes first.",
+        cost_assumptions={"transaction_cost_bps": transaction_cost_bps, "slippage_bps": slippage_bps},
+        summary_metrics=summary_metrics,
+        setup_breakdowns=breakdowns,
+        metadata={
+            "minimum_gap_days": minimum_gap_days,
+            "setup_count": len(setup_definitions),
+            "benchmark": {key: round(value, 6) for key, value in benchmark.items()},
+            "direction_breakdowns": direction_breakdowns,
+        },
+    )

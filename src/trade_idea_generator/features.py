@@ -42,6 +42,12 @@ def ma_slope(close: pd.Series, window: int, slope_period: int = 10) -> pd.Series
     return close.rolling(window, min_periods=window).mean().pct_change(slope_period)
 
 
+def efficiency_ratio(close: pd.Series, window: int) -> pd.Series:
+    net_change = close.diff(window).abs()
+    path_length = close.diff().abs().rolling(window, min_periods=window).sum()
+    return net_change / path_length.replace(0, np.nan)
+
+
 def compute_index_features(close: pd.Series, settings: Settings) -> pd.DataFrame:
     close = close.dropna().copy()
     if close.empty:
@@ -61,6 +67,7 @@ def compute_index_features(close: pd.Series, settings: Settings) -> pd.DataFrame
             "vol_term_structure": rv_short / rv_long.replace(0, np.nan),
             "rsi14": rsi(close, int(thresholds["rsi_period"])),
             "atr14": atr_proxy(close, int(thresholds["atr_window"])),
+            "efficiency_20d": efficiency_ratio(close, 20),
         }
     )
     for window in thresholds["ma_windows"]:
@@ -100,6 +107,29 @@ def compute_universe_breadth(member_prices: pd.DataFrame, settings: Settings) ->
         "pct_above_200_pct": rolling_percentile(pct_above_200, 252 * 2),
         "breadth_mom_pct": rolling_percentile(breadth_mom_200, 252 * 2),
     }
+
+
+def compute_relative_strength_features(close: pd.Series, benchmark_close: pd.Series) -> pd.DataFrame:
+    aligned = pd.concat([close.rename("close"), benchmark_close.rename("benchmark")], axis=1).dropna()
+    if aligned.empty:
+        return pd.DataFrame()
+    ratio = aligned["close"] / aligned["benchmark"].replace(0, np.nan)
+    rs_ma50 = ratio.rolling(50, min_periods=50).mean()
+    rs_ma200 = ratio.rolling(200, min_periods=200).mean()
+    market_roc20 = aligned["close"].pct_change(20)
+    benchmark_roc20 = aligned["benchmark"].pct_change(20)
+    market_roc60 = aligned["close"].pct_change(60)
+    benchmark_roc60 = aligned["benchmark"].pct_change(60)
+    relative = pd.DataFrame(
+        {
+            "rs_ratio": ratio,
+            "rs_vs_ma50": ratio / rs_ma50.replace(0, np.nan) - 1.0,
+            "rs_vs_ma200": ratio / rs_ma200.replace(0, np.nan) - 1.0,
+            "rs_gap_20d": market_roc20 - benchmark_roc20,
+            "rs_gap_60d": market_roc60 - benchmark_roc60,
+        }
+    )
+    return relative
 
 
 def trend_stack(df: pd.DataFrame, settings: Settings) -> int:

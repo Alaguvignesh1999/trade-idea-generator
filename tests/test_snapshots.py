@@ -2,6 +2,7 @@ import pandas as pd
 
 from trade_idea_generator.features import compute_index_features, compute_universe_breadth
 from trade_idea_generator.ranking import build_action_board, build_entry_plans, generate_member_trade_ideas, generate_trade_ideas
+from trade_idea_generator.backtest import run_backtest
 from trade_idea_generator.schemas import validate_payload
 from trade_idea_generator.signals import build_market_regime, build_risk_budget, build_tripwires, compute_signal_scores
 from trade_idea_generator.snapshots import snapshot_from_state
@@ -16,11 +17,15 @@ def test_snapshot_validates_against_schema(settings, synthetic_close, synthetic_
     member_ideas = generate_member_trade_ideas(synthetic_members, constituents, settings)
     action_board = build_action_board(member_ideas, settings)
     trade_ideas = generate_trade_ideas(features, breadth, regime, settings)
+    backtest = run_backtest(synthetic_close, settings, "Synthetic")
     state = {
         "market_name": "Synthetic",
         "ticker": "SYN",
         "close": synthetic_close,
+        "index_features": features,
         "member_prices": synthetic_members,
+        "constituents": constituents,
+        "breadth": breadth,
         "signal_scores": signal_scores,
         "regime": regime,
         "trade_ideas": trade_ideas,
@@ -30,8 +35,10 @@ def test_snapshot_validates_against_schema(settings, synthetic_close, synthetic_
         "entry_plans": build_entry_plans(trade_ideas, action_board),
         "data_quality": {"index_rows": len(synthetic_close)},
     }
-    snapshot = snapshot_from_state(state, settings, as_of="2026-03-16")
+    snapshot = snapshot_from_state(state, settings, backtest=backtest, as_of="2026-03-16")
     payload = snapshot.to_dict()
     validate_payload(payload, "market_snapshot.schema.json")
     validate_payload({"trade_ideas": payload["trade_ideas"]}, "trade_idea_list.schema.json")
     validate_payload({"action_board": payload["action_board"]}, "action_board.schema.json")
+    assert payload["research"]["chartbook"]["price_history"]
+    assert payload["research"]["setup_diagnostics"]
