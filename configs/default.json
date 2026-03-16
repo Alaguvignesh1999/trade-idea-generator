@@ -1,0 +1,70 @@
+{
+  "config_version": "2026-03-16",
+  "strategy_version": "2026.03.16",
+  "lookback": "5y",
+  "cache_dir": "./cache",
+  "artifact_dir": "./artifacts",
+  "forward_horizons": [5, 10, 20, 60, 120],
+  "indices": {
+    "S&P 500": "^GSPC",
+    "NASDAQ 100": "^NDX",
+    "Russell 2000": "^RUT",
+    "Dow 30": "^DJI"
+  },
+  "thresholds": {
+    "ma_windows": [10, 20, 50, 100, 200],
+    "rsi_period": 14,
+    "rv_window": 20,
+    "rv_long_window": 60,
+    "range_window": 252,
+    "atr_window": 14,
+    "breadth_mom_window": 20,
+    "trend_stack_bullish": 4,
+    "trend_stack_bearish": 1,
+    "range_pos_breakout": 0.92,
+    "range_pos_breakdown": 0.1,
+    "rsi_overbought": 70.0,
+    "rsi_oversold": 30.0,
+    "breadth_strong": 0.7,
+    "breadth_weak": 0.4
+  },
+  "score_weights": {
+    "trend_stack": 2.0,
+    "ma200_position": 1.5,
+    "range_position": 1.0,
+    "rsi_signal": 1.0,
+    "vol_regime": 1.0,
+    "drawdown": 1.5,
+    "breadth": 2.0,
+    "breadth_momentum": 1.5,
+    "momentum_20d": 1.0
+  },
+  "trade_idea": {
+    "idea_limit": 6,
+    "member_idea_limit": 12,
+    "action_board_limit": 8,
+    "minimum_samples": 20
+  },
+  "backtest": {
+    "holding_period_days": 20,
+    "transaction_cost_bps": 10,
+    "slippage_bps": 5,
+    "minimum_gap_days": 5
+  },
+  "universes": {
+    "S&P 500": {
+      "constituents_url": "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/master/data/constituents.csv",
+      "symbol_column": "Symbol",
+      "name_column": "Name",
+      "sector_column": "Sector",
+      "max_members": 80
+    },
+    "NASDAQ 100": {
+      "constituents_url": "https://raw.githubusercontent.com/datasets/nasdaq-100-companies/master/data/constituents.csv",
+      "symbol_column": "Symbol",
+      "name_column": "Company",
+      "sector_column": "",
+      "max_members": 80
+    }
+  }
+}
