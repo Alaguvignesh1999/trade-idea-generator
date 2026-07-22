@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-07-21",
+  "as_of": "2026-07-22",
   "market": "Dow 30",
   "data_quality": {
     "index_rows": 1254,
@@ -7,18 +7,18 @@
     "constituent_rows": 0,
     "member_price_columns": 0,
     "member_coverage": null,
-    "generated_at_epoch": 1784674779
+    "generated_at_epoch": 1784761607
   },
   "regime": {
     "bias": "Mixed tactical",
     "posture": "Add on pullbacks",
-    "composite": 3.345,
+    "composite": 3.217,
     "trend_stack": "3/5",
     "vol_bucket": "Compressed volatility",
     "tape": "Near highs / stable",
     "participation": "Mixed participation",
-    "bull_probability": 70.9,
-    "bear_probability": 29.1
+    "bull_probability": 70.1,
+    "bear_probability": 29.9
   },
   "signal_scores": [
     {
@@ -31,15 +31,15 @@
     },
     {
       "key": "ma200_position",
-      "raw": "+6.97%",
-      "score": 0.8108,
+      "raw": "+6.90%",
+      "score": 0.8062,
       "label": "ABOVE",
       "detail": "Distance from 200 day moving average.",
       "weight": 1.5
     },
     {
       "key": "trend_slope",
-      "raw": "+1.18%",
+      "raw": "+1.11%",
       "score": 1.0,
       "label": "RISING",
       "detail": "Average slope of the 20 and 50 day moving averages.",
@@ -47,8 +47,8 @@
     },
     {
       "key": "trend_efficiency",
-      "raw": "0.13",
-      "score": -0.649,
+      "raw": "0.14",
+      "score": -0.6179,
       "label": "CHOPPY",
       "detail": "How efficiently price has moved over the last 20 sessions versus noisy back-and-fill.",
       "weight": 1.0
@@ -56,15 +56,15 @@
     {
       "key": "range_position",
       "raw": "0.91",
-      "score": 0.8537,
+      "score": 0.8526,
       "label": "MID",
       "detail": "52 week range position.",
       "weight": 1.0
     },
     {
       "key": "distance_52w_high",
-      "raw": "-1.57%",
-      "score": 0.6083,
+      "raw": "-1.58%",
+      "score": 0.6054,
       "label": "PRESSING HIGHS",
       "detail": "Distance from the rolling 52 week high.",
       "weight": 0.75
@@ -72,7 +72,7 @@
     {
       "key": "rsi_signal",
       "raw": "53.3",
-      "score": 0.1005,
+      "score": 0.0976,
       "label": "NEUTRAL",
       "detail": "RSI14 signal state.",
       "weight": 1.0
@@ -88,39 +88,39 @@
     {
       "key": "vol_term_structure",
       "raw": "0.69x",
-      "score": 0.856,
+      "score": 0.8568,
       "label": "CALMING",
       "detail": "20 day volatility divided by 60 day volatility.",
       "weight": 0.75
     },
     {
       "key": "drawdown",
-      "raw": "-1.57%",
-      "score": 0.437,
+      "raw": "-1.58%",
+      "score": 0.4358,
       "label": "SHALLOW",
       "detail": "Drawdown from prior peak.",
       "weight": 1.5
     },
     {
       "key": "momentum_5d",
-      "raw": "-0.54%",
-      "score": -0.2701,
+      "raw": "-0.84%",
+      "score": -0.4178,
       "label": "FLAT",
       "detail": "5 day rate of change.",
       "weight": 0.75
     },
     {
       "key": "momentum_20d",
-      "raw": "+0.99%",
-      "score": 0.2475,
+      "raw": "+1.07%",
+      "score": 0.267,
       "label": "FLAT",
       "detail": "20 day rate of change.",
       "weight": 1.0
     },
     {
       "key": "momentum_60d",
-      "raw": "+5.91%",
-      "score": 0.5868,
+      "raw": "+6.07%",
+      "score": 0.5941,
       "label": "STRONG",
       "detail": "60 day rate of change.",
       "weight": 1.0
@@ -128,7 +128,7 @@
     {
       "key": "regime_shift",
       "raw": "stack \u039420 -2.0",
-      "score": -0.2509,
+      "score": -0.2441,
       "label": "STABLE",
       "detail": "Change in trend structure, medium-term momentum, and breadth over the last month.",
       "weight": 1.25
@@ -143,7 +143,7 @@
     },
     {
       "key": "volatility_release",
-      "raw": "3% / -0.54%",
+      "raw": "3% / -0.84%",
       "score": 0.5,
       "label": "COILED",
       "detail": "Whether compression is releasing higher or volatility is expanding lower.",
@@ -151,8 +151,8 @@
     },
     {
       "key": "relative_strength_market",
-      "raw": "20d +0.50pp / 60d +0.27pp",
-      "score": 0.257,
+      "raw": "20d -0.74pp / 60d +1.41pp",
+      "score": 0.1086,
       "label": "INLINE",
       "detail": "Relative performance of this market versus its benchmark basket.",
       "weight": 1.25
@@ -163,17 +163,17 @@
       "setup_key": "trend_pullback_long",
       "name": "Trend Pullback Long",
       "direction": "LONG",
-      "conviction": 68.7,
-      "suitability": 0.702,
+      "conviction": 68.3,
+      "suitability": 0.694,
       "thesis": "Use pullbacks inside an intact uptrend when price remains in the upper half of its long range.",
       "signal_reasons": [
         "Trend stack remains constructive.",
         "Price is close enough to support for a defined stop.",
-        "Composite backdrop is +3.3/10.",
-        "Relative strength backdrop is +0.50% over 20d."
+        "Composite backdrop is +3.2/10.",
+        "Relative strength backdrop is -0.74% over 20d."
       ],
-      "entry": 52345.1215,
-      "stop": 51311.2516,
+      "entry": 52372.7084,
+      "stop": 51363.4399,
       "target": 53055.9102,
       "stretch_target": 53055.9102,
       "time_horizon_days": 20,
@@ -182,13 +182,13 @@
         "sample_score": 1.0,
         "edge_score": 0.4895,
         "win_score": 1.0,
-        "reward_risk_score": 0.2292
+        "reward_risk_score": 0.2256
       },
       "historical_context": {
-        "sample_size": 383.0,
-        "mean_return": 0.00638,
-        "win_rate": 0.694517,
-        "edge_mean": -0.000841
+        "sample_size": 384.0,
+        "mean_return": 0.006391,
+        "win_rate": 0.695312,
+        "edge_mean": -0.000837
       },
       "backtest_rule": "trend_pullback_long",
       "status": "ACTIVE",
@@ -202,8 +202,8 @@
       "setup_key": "breakout_continuation_long",
       "name": "Breakout Continuation Long",
       "direction": "LONG",
-      "conviction": 63.0,
-      "suitability": 0.623,
+      "conviction": 62.4,
+      "suitability": 0.61,
       "thesis": "Lean into compression near highs when volatility is still subdued and a breakout can expand.",
       "signal_reasons": [
         "Price is near highs.",
@@ -212,14 +212,14 @@
         "Relative strength is helping rather than fighting the move."
       ],
       "entry": 53055.9102,
-      "stop": 52345.1215,
+      "stop": 52372.7084,
       "target": 53055.9102,
-      "stretch_target": 53613.7109,
+      "stretch_target": 53435.2266,
       "time_horizon_days": 20,
       "invalidation": "Breakout fails back below the trigger zone and 20 day support.",
       "confidence_inputs": {
         "sample_score": 1.0,
-        "edge_score": 0.4968,
+        "edge_score": 0.4967,
         "win_score": 1.0,
         "reward_risk_score": 0.0
       },
@@ -227,7 +227,7 @@
         "sample_size": 214.0,
         "mean_return": 0.006964,
         "win_rate": 0.700935,
-        "edge_mean": -0.000257
+        "edge_mean": -0.000264
       },
       "backtest_rule": "breakout_continuation_long",
       "status": "ACTIVE",
@@ -241,8 +241,8 @@
       "setup_key": "volatility_compression_long",
       "name": "Volatility Compression Long",
       "direction": "LONG",
-      "conviction": 62.6,
-      "suitability": 0.659,
+      "conviction": 62.1,
+      "suitability": 0.646,
       "thesis": "Use quiet, tightening conditions near the upper half of the range to prepare for expansion trades.",
       "signal_reasons": [
         "Volatility has compressed.",
@@ -251,14 +251,14 @@
         "Relative strength says the market can lead if expansion arrives."
       ],
       "entry": 53055.9102,
-      "stop": 52345.1215,
+      "stop": 52372.7084,
       "target": 53055.9102,
-      "stretch_target": 53613.7109,
+      "stretch_target": 53435.2266,
       "time_horizon_days": 20,
       "invalidation": "Volatility expands lower first and price breaks back under the 20 day moving average.",
       "confidence_inputs": {
         "sample_score": 1.0,
-        "edge_score": 0.4695,
+        "edge_score": 0.4694,
         "win_score": 0.9067,
         "reward_risk_score": 0.0
       },
@@ -266,7 +266,7 @@
         "sample_size": 150.0,
         "mean_return": 0.004779,
         "win_rate": 0.626667,
-        "edge_mean": -0.002442
+        "edge_mean": -0.002449
       },
       "backtest_rule": "volatility_compression_long",
       "status": "WATCHLIST",
@@ -280,8 +280,8 @@
       "setup_key": "oversold_bounce_long",
       "name": "Oversold Bounce Long",
       "direction": "LONG",
-      "conviction": 57.7,
-      "suitability": 0.41,
+      "conviction": 57.6,
+      "suitability": 0.404,
       "thesis": "Capture tactical mean reversion after a controlled pullback rather than a full regime break.",
       "signal_reasons": [
         "RSI is stretched lower.",
@@ -289,77 +289,38 @@
         "Breadth momentum has room to stabilize.",
         "Tape quality is choppy enough for reversal trades to matter."
       ],
-      "entry": 52224.6406,
-      "stop": 51311.2516,
-      "target": 52572.6598,
-      "stretch_target": 52920.679,
+      "entry": 52218.5781,
+      "stop": 51363.4399,
+      "target": 52565.7134,
+      "stretch_target": 52912.8487,
       "time_horizon_days": 20,
       "invalidation": "Fresh lows keep printing and breadth fails to stabilize.",
       "confidence_inputs": {
-        "sample_score": 0.9833,
-        "edge_score": 0.6586,
+        "sample_score": 1.0,
+        "edge_score": 0.6563,
         "win_score": 1.0,
-        "reward_risk_score": 0.127
+        "reward_risk_score": 0.1353
       },
       "historical_context": {
-        "sample_size": 118.0,
-        "mean_return": 0.019912,
-        "win_rate": 0.652542,
-        "edge_mean": 0.012691
+        "sample_size": 121.0,
+        "mean_return": 0.01973,
+        "win_rate": 0.652893,
+        "edge_mean": 0.012502
       },
       "backtest_rule": "oversold_bounce_long",
       "status": "ACTIVE",
       "backtest_trades": 26,
-      "backtest_win_rate": 0.6154,
-      "backtest_average_return": 0.004637,
-      "quality_score": 62.1,
+      "backtest_win_rate": 0.5769,
+      "backtest_average_return": 0.003592,
+      "quality_score": 55.8,
       "quality_verdict": "FAVORABLE"
-    },
-    {
-      "setup_key": "trend_failure_short",
-      "name": "Trend Failure Short",
-      "direction": "SHORT",
-      "conviction": 48.3,
-      "suitability": 0.093,
-      "thesis": "Short failed rallies when price is trapped below declining moving averages and range position is weak.",
-      "signal_reasons": [
-        "Trend stack is weak.",
-        "Price is below key moving averages.",
-        "Composite conditions do not support aggressive risk-taking.",
-        "Relative strength is lagging rather than leading."
-      ],
-      "entry": 52340.647,
-      "stop": 52688.6662,
-      "target": 51666.8398,
-      "stretch_target": 48861.8086,
-      "time_horizon_days": 20,
-      "invalidation": "Price reclaims the 20 and 50 day moving averages with improving momentum.",
-      "confidence_inputs": {
-        "sample_score": 1.0,
-        "edge_score": 0.6427,
-        "win_score": 0.9882,
-        "reward_risk_score": 0.6454
-      },
-      "historical_context": {
-        "sample_size": 255.0,
-        "mean_return": 0.018638,
-        "win_rate": 0.647059,
-        "edge_mean": 0.011417
-      },
-      "backtest_rule": "trend_failure_short",
-      "status": "AVOID",
-      "backtest_trades": 39,
-      "backtest_win_rate": 0.3846,
-      "backtest_average_return": -0.00286,
-      "quality_score": 26.3,
-      "quality_verdict": "WEAK"
     },
     {
       "setup_key": "exhaustion_reversal_short",
       "name": "Exhaustion Reversal Short",
       "direction": "SHORT",
-      "conviction": 47.6,
-      "suitability": 0.326,
+      "conviction": 48.1,
+      "suitability": 0.344,
       "thesis": "Fade stretched, stalling tape when momentum stops confirming new highs.",
       "signal_reasons": [
         "RSI is elevated.",
@@ -367,23 +328,23 @@
         "Price is extended toward the top of its range.",
         "Relative strength is no longer confirming the headline move."
       ],
-      "entry": 52224.6406,
+      "entry": 52218.5781,
       "stop": 53055.9102,
-      "target": 51311.2516,
-      "stretch_target": 51528.6023,
+      "target": 51363.4399,
+      "stretch_target": 51524.3075,
       "time_horizon_days": 20,
       "invalidation": "Momentum re-accelerates higher and price breaks out cleanly to fresh highs.",
       "confidence_inputs": {
         "sample_score": 0.0167,
-        "edge_score": 0.7038,
+        "edge_score": 0.7037,
         "win_score": 1.0,
-        "reward_risk_score": 0.3663
+        "reward_risk_score": 0.3404
       },
       "historical_context": {
         "sample_size": 2.0,
         "mean_return": 0.023526,
         "win_rate": 1.0,
-        "edge_mean": 0.016305
+        "edge_mean": 0.016298
       },
       "backtest_rule": "exhaustion_reversal_short",
       "status": "AVOID",
@@ -392,30 +353,69 @@
       "backtest_average_return": -0.011073,
       "quality_score": 13.5,
       "quality_verdict": "WEAK"
+    },
+    {
+      "setup_key": "trend_failure_short",
+      "name": "Trend Failure Short",
+      "direction": "SHORT",
+      "conviction": 47.3,
+      "suitability": 0.102,
+      "thesis": "Short failed rallies when price is trapped below declining moving averages and range position is weak.",
+      "signal_reasons": [
+        "Trend stack is weak.",
+        "Price is below key moving averages.",
+        "Composite conditions do not support aggressive risk-taking.",
+        "Relative strength is lagging rather than leading."
+      ],
+      "entry": 52334.2899,
+      "stop": 52681.4252,
+      "target": 51802.0158,
+      "stretch_target": 48861.8086,
+      "time_horizon_days": 20,
+      "invalidation": "Price reclaims the 20 and 50 day moving averages with improving momentum.",
+      "confidence_inputs": {
+        "sample_score": 1.0,
+        "edge_score": 0.6408,
+        "win_score": 0.9827,
+        "reward_risk_score": 0.5111
+      },
+      "historical_context": {
+        "sample_size": 254.0,
+        "mean_return": 0.018492,
+        "win_rate": 0.645669,
+        "edge_mean": 0.011264
+      },
+      "backtest_rule": "trend_failure_short",
+      "status": "AVOID",
+      "backtest_trades": 39,
+      "backtest_win_rate": 0.3846,
+      "backtest_average_return": -0.002863,
+      "quality_score": 26.3,
+      "quality_verdict": "WEAK"
     }
   ],
   "action_board": [],
   "tripwires": [
     {
       "name": "Lose 20DMA",
-      "current_value": "52224.64",
-      "threshold": "52345.12",
+      "current_value": "52218.58",
+      "threshold": "52372.71",
       "status": "TRIGGERED",
       "risk": "Short-term trend damage",
       "response": "Reduce chase risk and demand cleaner entries."
     },
     {
       "name": "Lose 50DMA",
-      "current_value": "52224.64",
-      "threshold": "51311.25",
+      "current_value": "52218.58",
+      "threshold": "51363.44",
       "status": "CLEAR",
       "risk": "Intermediate trend failure",
       "response": "Cut gross exposure and raise hedges."
     },
     {
       "name": "Lose 200DMA",
-      "current_value": "52224.64",
-      "threshold": "48820.25",
+      "current_value": "52218.58",
+      "threshold": "48848.75",
       "status": "CLEAR",
       "risk": "Long-term regime deterioration",
       "response": "Shift from pro-risk to defense."
@@ -430,7 +430,7 @@
     },
     {
       "name": "Composite collapse",
-      "current_value": "+3.3",
+      "current_value": "+3.2",
       "threshold": "<= -4.0",
       "status": "CLEAR",
       "risk": "Broad bearish alignment",
@@ -446,12 +446,12 @@
     }
   ],
   "risk_budget": {
-    "gross_target": 85.2,
-    "net_target": 15.1,
-    "long_target": 50.1,
-    "short_target": 35.1,
-    "cash_target": 14.8,
-    "hedge_target": 35.1,
+    "gross_target": 84.9,
+    "net_target": 14.3,
+    "long_target": 49.6,
+    "short_target": 35.3,
+    "cash_target": 15.1,
+    "hedge_target": 35.3,
     "action_board_depth": 0,
     "posture": "Add on pullbacks"
   },
@@ -460,9 +460,9 @@
       "layer": "index",
       "item": "Trend Pullback Long",
       "direction": "LONG",
-      "trigger_entry": 52345.1215,
-      "pullback_entry": 52003.9444,
-      "failure_level": 51311.2516,
+      "trigger_entry": 52372.7084,
+      "pullback_entry": 52039.6498,
+      "failure_level": 51363.4399,
       "target": 53055.9102,
       "execution_note": "Prefer pullback fill"
     },
@@ -471,8 +471,8 @@
       "item": "Breakout Continuation Long",
       "direction": "LONG",
       "trigger_entry": 53055.9102,
-      "pullback_entry": 52821.3499,
-      "failure_level": 52345.1215,
+      "pullback_entry": 52830.4536,
+      "failure_level": 52372.7084,
       "target": 53055.9102,
       "execution_note": "Use breakout trigger"
     },
@@ -481,8 +481,8 @@
       "item": "Volatility Compression Long",
       "direction": "LONG",
       "trigger_entry": 53055.9102,
-      "pullback_entry": 52821.3499,
-      "failure_level": 52345.1215,
+      "pullback_entry": 52830.4536,
+      "failure_level": 52372.7084,
       "target": 53055.9102,
       "execution_note": "Scale only if tape confirms"
     },
@@ -490,10 +490,10 @@
       "layer": "index",
       "item": "Oversold Bounce Long",
       "direction": "LONG",
-      "trigger_entry": 52224.6406,
-      "pullback_entry": 51923.2222,
-      "failure_level": 51311.2516,
-      "target": 52572.6598,
+      "trigger_entry": 52218.5781,
+      "pullback_entry": 51936.3825,
+      "failure_level": 51363.4399,
+      "target": 52565.7134,
       "execution_note": "Scale only if tape confirms"
     }
   ],
@@ -502,7 +502,7 @@
     "benchmark": "S&P 500",
     "config_version": "2026-03-16",
     "strategy_version": "2026.03.16",
-    "generated_at": "2026-07-21T22:59:40Z",
+    "generated_at": "2026-07-22T23:06:48Z",
     "source_health": {
       "index_history_available": true,
       "member_universe_available": false,
@@ -512,14 +512,6 @@
   "research": {
     "chartbook": {
       "price_history": [
-        {
-          "date": "2025-07-21",
-          "close": 44323.07,
-          "ma20": 44088.85,
-          "ma50": 43015.97,
-          "ma200": 42781.52,
-          "drawdown_pct": -1.54
-        },
         {
           "date": "2025-07-22",
           "close": 44502.44,
@@ -2527,16 +2519,17 @@
           "ma50": 51311.25,
           "ma200": 48820.25,
           "drawdown_pct": -1.57
+        },
+        {
+          "date": "2026-07-22",
+          "close": 52218.58,
+          "ma20": 52372.71,
+          "ma50": 51363.44,
+          "ma200": 48848.75,
+          "drawdown_pct": -1.58
         }
       ],
       "oscillator_history": [
-        {
-          "date": "2025-07-21",
-          "rsi14": 59.0,
-          "volatility_percentile": 47.0,
-          "range_position": 90.6,
-          "momentum_20d": 5.01
-        },
         {
           "date": "2025-07-22",
           "rsi14": 61.3,
@@ -4293,15 +4286,16 @@
           "volatility_percentile": 3.2,
           "range_position": 91.2,
           "momentum_20d": 0.99
+        },
+        {
+          "date": "2026-07-22",
+          "rsi14": 53.3,
+          "volatility_percentile": 3.2,
+          "range_position": 91.2,
+          "momentum_20d": 1.07
         }
       ],
       "breadth_history": [
-        {
-          "date": "2025-07-21",
-          "pct_above_50": null,
-          "pct_above_200": null,
-          "breadth_momentum": null
-        },
         {
           "date": "2025-07-22",
           "pct_above_50": null,
@@ -5807,15 +5801,15 @@
           "pct_above_50": null,
           "pct_above_200": null,
           "breadth_momentum": null
+        },
+        {
+          "date": "2026-07-22",
+          "pct_above_50": null,
+          "pct_above_200": null,
+          "breadth_momentum": null
         }
       ],
       "relative_strength_history": [
-        {
-          "date": "2025-07-21",
-          "rs_gap_20d": -0.65,
-          "rs_gap_60d": -5.39,
-          "rs_vs_ma50": -1.29
-        },
         {
           "date": "2025-07-22",
           "rs_gap_20d": -0.21,
@@ -7321,16 +7315,15 @@
           "rs_gap_20d": 0.5,
           "rs_gap_60d": 0.27,
           "rs_vs_ma50": 1.25
+        },
+        {
+          "date": "2026-07-22",
+          "rs_gap_20d": -0.74,
+          "rs_gap_60d": 1.41,
+          "rs_vs_ma50": 1.3
         }
       ],
       "signal_family_history": [
-        {
-          "date": "2025-07-21",
-          "regime_shift": null,
-          "breadth_thrust": null,
-          "washout_reversal": null,
-          "volatility_release": 0.02
-        },
         {
           "date": "2025-07-22",
           "regime_shift": null,
@@ -7466,7 +7459,7 @@
         },
         {
           "date": "2025-08-18",
-          "regime_shift": 1.0,
+          "regime_shift": null,
           "breadth_thrust": null,
           "washout_reversal": null,
           "volatility_release": -0.09
@@ -9087,6 +9080,13 @@
           "breadth_thrust": null,
           "washout_reversal": null,
           "volatility_release": 0.6
+        },
+        {
+          "date": "2026-07-22",
+          "regime_shift": -2.0,
+          "breadth_thrust": null,
+          "washout_reversal": null,
+          "volatility_release": 0.58
         }
       ]
     },
@@ -9106,11 +9106,11 @@
         "setup_key": "oversold_bounce_long",
         "direction": "LONG",
         "trades": 26,
-        "win_rate": 0.6154,
-        "average_return": 0.004637,
-        "cumulative_return": 0.124374,
+        "win_rate": 0.5769,
+        "average_return": 0.003592,
+        "cumulative_return": 0.094383,
         "max_drawdown": -0.062234,
-        "quality_score": 62.1,
+        "quality_score": 55.8,
         "verdict": "FAVORABLE"
       },
       {
@@ -9140,8 +9140,8 @@
         "direction": "SHORT",
         "trades": 39,
         "win_rate": 0.3846,
-        "average_return": -0.00286,
-        "cumulative_return": -0.112447,
+        "average_return": -0.002863,
+        "cumulative_return": -0.112578,
         "max_drawdown": -0.177006,
         "quality_score": 26.3,
         "verdict": "WEAK"
