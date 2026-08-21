@@ -1,24 +1,24 @@
 {
-  "as_of": "2026-08-20",
+  "as_of": "2026-08-21",
   "market": "Dow 30",
   "data_quality": {
-    "index_rows": 1251,
+    "index_rows": 1255,
     "index_empty": false,
     "constituent_rows": 0,
     "member_price_columns": 0,
     "member_coverage": null,
-    "generated_at_epoch": 1787264974
+    "generated_at_epoch": 1787351221
   },
   "regime": {
     "bias": "Mixed tactical",
     "posture": "Trade selectively",
-    "composite": 1.117,
+    "composite": 1.811,
     "trend_stack": "3/5",
     "vol_bucket": "Normal volatility",
     "tape": "Near highs / stable",
     "participation": "Mixed participation",
-    "bull_probability": 57.0,
-    "bear_probability": 43.0
+    "bull_probability": 61.3,
+    "bear_probability": 38.7
   },
   "signal_scores": [
     {
@@ -31,15 +31,15 @@
     },
     {
       "key": "ma200_position",
-      "raw": "+6.68%",
-      "score": 0.7927,
+      "raw": "+7.51%",
+      "score": 0.8445,
       "label": "ABOVE",
       "detail": "Distance from 200 day moving average.",
       "weight": 1.5
     },
     {
       "key": "trend_slope",
-      "raw": "+1.09%",
+      "raw": "+1.13%",
       "score": 1.0,
       "label": "RISING",
       "detail": "Average slope of the 20 and 50 day moving averages.",
@@ -47,80 +47,80 @@
     },
     {
       "key": "trend_efficiency",
-      "raw": "0.13",
-      "score": -0.652,
+      "raw": "0.18",
+      "score": -0.5074,
       "label": "CHOPPY",
       "detail": "How efficiently price has moved over the last 20 sessions versus noisy back-and-fill.",
       "weight": 1.0
     },
     {
       "key": "range_position",
-      "raw": "0.83",
-      "score": 0.7229,
+      "raw": "0.89",
+      "score": 0.8132,
       "label": "MID",
       "detail": "52 week range position.",
       "weight": 1.0
     },
     {
       "key": "distance_52w_high",
-      "raw": "-2.93%",
-      "score": 0.4075,
-      "label": "NEAR HIGHS",
+      "raw": "-1.97%",
+      "score": 0.5068,
+      "label": "PRESSING HIGHS",
       "detail": "Distance from the rolling 52 week high.",
       "weight": 0.75
     },
     {
       "key": "rsi_signal",
-      "raw": "46.4",
-      "score": -0.1093,
+      "raw": "52.4",
+      "score": 0.0708,
       "label": "NEUTRAL",
       "detail": "RSI14 signal state.",
       "weight": 1.0
     },
     {
       "key": "vol_regime",
-      "raw": "75%",
-      "score": -0.4134,
+      "raw": "72%",
+      "score": -0.3737,
       "label": "NORMAL",
       "detail": "20 day realized volatility percentile.",
       "weight": 1.0
     },
     {
       "key": "vol_term_structure",
-      "raw": "1.17x",
-      "score": -0.5318,
-      "label": "STRESSED",
+      "raw": "1.14x",
+      "score": -0.4541,
+      "label": "BALANCED",
       "detail": "20 day volatility divided by 60 day volatility.",
       "weight": 0.75
     },
     {
       "key": "drawdown",
-      "raw": "-2.93%",
-      "score": 0.2861,
+      "raw": "-1.97%",
+      "score": 0.3919,
       "label": "SHALLOW",
       "detail": "Drawdown from prior peak.",
       "weight": 1.5
     },
     {
       "key": "momentum_5d",
-      "raw": "-2.01%",
-      "score": -0.6679,
-      "label": "WEAK",
+      "raw": "-0.85%",
+      "score": -0.4238,
+      "label": "FLAT",
       "detail": "5 day rate of change.",
       "weight": 0.75
     },
     {
       "key": "momentum_20d",
-      "raw": "+1.77%",
-      "score": 0.4437,
+      "raw": "+2.56%",
+      "score": 0.5467,
       "label": "FLAT",
       "detail": "20 day rate of change.",
       "weight": 1.0
     },
     {
       "key": "momentum_60d",
-      "raw": "+5.50%",
-      "score": 0.5681,
+      "raw": "+5.20%",
+      "score": 0.5545,
       "label": "STRONG",
       "detail": "60 day rate of change.",
       "weight": 1.0
@@ -128,7 +128,7 @@
     {
       "key": "regime_shift",
       "raw": "stack \u039420 +0.0",
-      "score": 0.1553,
+      "score": 0.1913,
       "label": "STABLE",
       "detail": "Change in trend structure, medium-term momentum, and breadth over the last month.",
       "weight": 1.25
@@ -143,16 +143,16 @@
     },
     {
       "key": "volatility_release",
-      "raw": "75% / -2.01%",
-      "score": -0.5601,
+      "raw": "72% / -0.85%",
+      "score": -0.443,
       "label": "BALANCED",
       "detail": "Whether compression is releasing higher or volatility is expanding lower.",
       "weight": 1.0
     },
     {
       "key": "relative_strength_market",
-      "raw": "20d -0.88pp / 60d +2.70pp",
-      "score": -0.0931,
+      "raw": "20d -0.98pp / 60d +3.15pp",
+      "score": -0.0447,
       "label": "INLINE",
       "detail": "Relative performance of this market versus its benchmark basket.",
       "weight": 1.25
@@ -163,47 +163,47 @@
       "setup_key": "trend_pullback_long",
       "name": "Trend Pullback Long",
       "direction": "LONG",
-      "conviction": 67.5,
-      "suitability": 0.648,
+      "conviction": 69.5,
+      "suitability": 0.664,
       "thesis": "Use pullbacks inside an intact uptrend when price remains in the upper half of its long range.",
       "signal_reasons": [
         "Trend stack remains constructive.",
         "Price is close enough to support for a defined stop.",
-        "Composite backdrop is +1.1/10.",
-        "Relative strength backdrop is -0.88% over 20d."
+        "Composite backdrop is +1.8/10.",
+        "Relative strength backdrop is -0.98% over 20d."
       ],
-      "entry": 53204.4939,
-      "stop": 52135.3907,
+      "entry": 53309.6512,
+      "stop": 52589.2921,
       "target": 54349.1211,
       "stretch_target": 54349.1211,
       "time_horizon_days": 20,
       "invalidation": "Price loses the 50 day moving average or medium-term momentum worsens.",
       "confidence_inputs": {
         "sample_score": 1.0,
-        "edge_score": 0.4895,
+        "edge_score": 0.4887,
         "win_score": 1.0,
-        "reward_risk_score": 0.3569
+        "reward_risk_score": 0.481
       },
       "historical_context": {
         "sample_size": 397.0,
-        "mean_return": 0.006711,
-        "win_rate": 0.700252,
-        "edge_mean": -0.00084
+        "mean_return": 0.006658,
+        "win_rate": 0.697733,
+        "edge_mean": -0.000901
       },
       "backtest_rule": "trend_pullback_long",
       "status": "ACTIVE",
       "backtest_trades": 53,
-      "backtest_win_rate": 0.5472,
-      "backtest_average_return": 0.001863,
-      "quality_score": 63.7,
+      "backtest_win_rate": 0.5283,
+      "backtest_average_return": 0.001361,
+      "quality_score": 59.5,
       "quality_verdict": "FAVORABLE"
     },
     {
       "setup_key": "oversold_bounce_long",
       "name": "Oversold Bounce Long",
       "direction": "LONG",
-      "conviction": 66.1,
-      "suitability": 0.567,
+      "conviction": 64.5,
+      "suitability": 0.543,
       "thesis": "Capture tactical mean reversion after a controlled pullback rather than a full regime break.",
       "signal_reasons": [
         "RSI is stretched lower.",
@@ -211,23 +211,23 @@
         "Breadth momentum has room to stabilize.",
         "Tape quality is choppy enough for reversal trades to matter."
       ],
-      "entry": 52759.2109,
-      "stop": 52135.3907,
-      "target": 53227.0761,
-      "stretch_target": 53694.9413,
+      "entry": 53277.0117,
+      "stop": 52589.2921,
+      "target": 53699.3969,
+      "stretch_target": 54121.7822,
       "time_horizon_days": 20,
       "invalidation": "Fresh lows keep printing and breadth fails to stabilize.",
       "confidence_inputs": {
         "sample_score": 1.0,
-        "edge_score": 0.6523,
+        "edge_score": 0.6522,
         "win_score": 1.0,
-        "reward_risk_score": 0.25
+        "reward_risk_score": 0.2047
       },
       "historical_context": {
         "sample_size": 122.0,
         "mean_return": 0.019737,
         "win_rate": 0.655738,
-        "edge_mean": 0.012186
+        "edge_mean": 0.012177
       },
       "backtest_rule": "oversold_bounce_long",
       "status": "ACTIVE",
@@ -238,11 +238,50 @@
       "quality_verdict": "FAVORABLE"
     },
     {
+      "setup_key": "volatility_compression_long",
+      "name": "Volatility Compression Long",
+      "direction": "LONG",
+      "conviction": 52.4,
+      "suitability": 0.426,
+      "thesis": "Use quiet, tightening conditions near the upper half of the range to prepare for expansion trades.",
+      "signal_reasons": [
+        "Volatility has compressed.",
+        "The 20 day average is still sloping higher.",
+        "Price is already leaning against the upper half of its range.",
+        "Relative strength says the market can lead if expansion arrives."
+      ],
+      "entry": 54349.1211,
+      "stop": 53309.6512,
+      "target": 54349.1211,
+      "stretch_target": 56031.9922,
+      "time_horizon_days": 20,
+      "invalidation": "Volatility expands lower first and price breaks back under the 20 day moving average.",
+      "confidence_inputs": {
+        "sample_score": 1.0,
+        "edge_score": 0.4708,
+        "win_score": 0.9223,
+        "reward_risk_score": 0.0
+      },
+      "historical_context": {
+        "sample_size": 157.0,
+        "mean_return": 0.005223,
+        "win_rate": 0.630573,
+        "edge_mean": -0.002336
+      },
+      "backtest_rule": "volatility_compression_long",
+      "status": "WATCHLIST",
+      "backtest_trades": 23,
+      "backtest_win_rate": 0.5217,
+      "backtest_average_return": -7e-06,
+      "quality_score": 40.0,
+      "quality_verdict": "MIXED"
+    },
+    {
       "setup_key": "trend_failure_short",
       "name": "Trend Failure Short",
       "direction": "SHORT",
-      "conviction": 51.3,
-      "suitability": 0.115,
+      "conviction": 51.8,
+      "suitability": 0.113,
       "thesis": "Short failed rallies when price is trapped below declining moving averages and range position is weak.",
       "signal_reasons": [
         "Trend stack is weak.",
@@ -250,23 +289,23 @@
         "Composite conditions do not support aggressive risk-taking.",
         "Relative strength is lagging rather than leading."
       ],
-      "entry": 52915.166,
-      "stop": 53383.0312,
+      "entry": 53309.6512,
+      "stop": 53840.192,
       "target": 51594.1406,
       "stretch_target": 49918.7812,
       "time_horizon_days": 20,
       "invalidation": "Price reclaims the 20 and 50 day moving averages with improving momentum.",
       "confidence_inputs": {
         "sample_score": 1.0,
-        "edge_score": 0.6269,
+        "edge_score": 0.6268,
         "win_score": 0.9484,
-        "reward_risk_score": 0.9412
+        "reward_risk_score": 1.0
       },
       "historical_context": {
         "sample_size": 248.0,
         "mean_return": 0.017702,
         "win_rate": 0.637097,
-        "edge_mean": 0.010152
+        "edge_mean": 0.010143
       },
       "backtest_rule": "trend_failure_short",
       "status": "AVOID",
@@ -277,89 +316,11 @@
       "quality_verdict": "WEAK"
     },
     {
-      "setup_key": "volatility_compression_long",
-      "name": "Volatility Compression Long",
-      "direction": "LONG",
-      "conviction": 50.7,
-      "suitability": 0.388,
-      "thesis": "Use quiet, tightening conditions near the upper half of the range to prepare for expansion trades.",
-      "signal_reasons": [
-        "Volatility has compressed.",
-        "The 20 day average is still sloping higher.",
-        "Price is already leaning against the upper half of its range.",
-        "Relative strength says the market can lead if expansion arrives."
-      ],
-      "entry": 54349.1211,
-      "stop": 53204.4939,
-      "target": 54349.1211,
-      "stretch_target": 55514.1914,
-      "time_horizon_days": 20,
-      "invalidation": "Volatility expands lower first and price breaks back under the 20 day moving average.",
-      "confidence_inputs": {
-        "sample_score": 1.0,
-        "edge_score": 0.4694,
-        "win_score": 0.9223,
-        "reward_risk_score": 0.0
-      },
-      "historical_context": {
-        "sample_size": 157.0,
-        "mean_return": 0.005102,
-        "win_rate": 0.630573,
-        "edge_mean": -0.002448
-      },
-      "backtest_rule": "volatility_compression_long",
-      "status": "WATCHLIST",
-      "backtest_trades": 22,
-      "backtest_win_rate": 0.5,
-      "backtest_average_return": -0.000614,
-      "quality_score": 36.3,
-      "quality_verdict": "MIXED"
-    },
-    {
-      "setup_key": "exhaustion_reversal_short",
-      "name": "Exhaustion Reversal Short",
-      "direction": "SHORT",
-      "conviction": 49.0,
-      "suitability": 0.414,
-      "thesis": "Fade stretched, stalling tape when momentum stops confirming new highs.",
-      "signal_reasons": [
-        "RSI is elevated.",
-        "Short-term momentum has rolled over.",
-        "Price is extended toward the top of its range.",
-        "Relative strength is no longer confirming the headline move."
-      ],
-      "entry": 52759.2109,
-      "stop": 54349.1211,
-      "target": 52197.7727,
-      "stretch_target": 51594.1406,
-      "time_horizon_days": 20,
-      "invalidation": "Momentum re-accelerates higher and price breaks out cleanly to fresh highs.",
-      "confidence_inputs": {
-        "sample_score": 0.0167,
-        "edge_score": 0.6997,
-        "win_score": 1.0,
-        "reward_risk_score": 0.1177
-      },
-      "historical_context": {
-        "sample_size": 2.0,
-        "mean_return": 0.023526,
-        "win_rate": 1.0,
-        "edge_mean": 0.015976
-      },
-      "backtest_rule": "exhaustion_reversal_short",
-      "status": "AVOID",
-      "backtest_trades": 1,
-      "backtest_win_rate": 0.0,
-      "backtest_average_return": -0.011073,
-      "quality_score": 13.5,
-      "quality_verdict": "WEAK"
-    },
-    {
       "setup_key": "breakout_continuation_long",
       "name": "Breakout Continuation Long",
       "direction": "LONG",
-      "conviction": 47.1,
-      "suitability": 0.27,
+      "conviction": 50.5,
+      "suitability": 0.346,
       "thesis": "Lean into compression near highs when volatility is still subdued and a breakout can expand.",
       "signal_reasons": [
         "Price is near highs.",
@@ -368,69 +329,108 @@
         "Relative strength is helping rather than fighting the move."
       ],
       "entry": 54349.1211,
-      "stop": 53204.4939,
+      "stop": 53309.6512,
       "target": 54349.1211,
-      "stretch_target": 55514.1914,
+      "stretch_target": 56031.9922,
       "time_horizon_days": 20,
       "invalidation": "Breakout fails back below the trigger zone and 20 day support.",
       "confidence_inputs": {
         "sample_score": 1.0,
-        "edge_score": 0.4964,
+        "edge_score": 0.4977,
         "win_score": 1.0,
         "reward_risk_score": 0.0
       },
       "historical_context": {
         "sample_size": 219.0,
-        "mean_return": 0.007265,
+        "mean_return": 0.007375,
         "win_rate": 0.707763,
-        "edge_mean": -0.000285
+        "edge_mean": -0.000184
       },
       "backtest_rule": "breakout_continuation_long",
       "status": "WATCHLIST",
-      "backtest_trades": 28,
-      "backtest_win_rate": 0.5357,
-      "backtest_average_return": 0.000237,
-      "quality_score": 43.8,
+      "backtest_trades": 29,
+      "backtest_win_rate": 0.5517,
+      "backtest_average_return": 0.00069,
+      "quality_score": 47.0,
       "quality_verdict": "FAVORABLE"
+    },
+    {
+      "setup_key": "exhaustion_reversal_short",
+      "name": "Exhaustion Reversal Short",
+      "direction": "SHORT",
+      "conviction": 49.7,
+      "suitability": 0.417,
+      "thesis": "Fade stretched, stalling tape when momentum stops confirming new highs.",
+      "signal_reasons": [
+        "RSI is elevated.",
+        "Short-term momentum has rolled over.",
+        "Price is extended toward the top of its range.",
+        "Relative strength is no longer confirming the headline move."
+      ],
+      "entry": 53203.0319,
+      "stop": 54349.1211,
+      "target": 52589.2921,
+      "stretch_target": 51594.1406,
+      "time_horizon_days": 20,
+      "invalidation": "Momentum re-accelerates higher and price breaks out cleanly to fresh highs.",
+      "confidence_inputs": {
+        "sample_score": 0.0167,
+        "edge_score": 0.6996,
+        "win_score": 1.0,
+        "reward_risk_score": 0.1785
+      },
+      "historical_context": {
+        "sample_size": 2.0,
+        "mean_return": 0.023526,
+        "win_rate": 1.0,
+        "edge_mean": 0.015967
+      },
+      "backtest_rule": "exhaustion_reversal_short",
+      "status": "AVOID",
+      "backtest_trades": 1,
+      "backtest_win_rate": 0.0,
+      "backtest_average_return": -0.011073,
+      "quality_score": 13.5,
+      "quality_verdict": "WEAK"
     }
   ],
   "action_board": [],
   "tripwires": [
     {
       "name": "Lose 20DMA",
-      "current_value": "52759.21",
-      "threshold": "53204.49",
+      "current_value": "53277.01",
+      "threshold": "53309.65",
       "status": "TRIGGERED",
       "risk": "Short-term trend damage",
       "response": "Reduce chase risk and demand cleaner entries."
     },
     {
-      "name": "Lose 50DMA",
-      "current_value": "52759.21",
-      "threshold": "52434.06",
-      "status": "NEAR",
-      "risk": "Intermediate trend failure",
-      "response": "Cut gross exposure and raise hedges."
-    },
-    {
       "name": "Volatility shock",
-      "current_value": "75%",
+      "current_value": "72%",
       "threshold": ">= 80%",
       "status": "NEAR",
       "risk": "Unstable tape",
       "response": "Trade smaller and raise selectivity."
     },
     {
+      "name": "Lose 50DMA",
+      "current_value": "53277.01",
+      "threshold": "52589.29",
+      "status": "CLEAR",
+      "risk": "Intermediate trend failure",
+      "response": "Cut gross exposure and raise hedges."
+    },
+    {
       "name": "Lose 200DMA",
-      "current_value": "52759.21",
-      "threshold": "49453.76",
+      "current_value": "53277.01",
+      "threshold": "49554.52",
       "status": "CLEAR",
       "risk": "Long-term regime deterioration",
       "response": "Shift from pro-risk to defense."
     },
     {
       "name": "Composite collapse",
-      "current_value": "+1.1",
+      "current_value": "+1.8",
       "threshold": "<= -4.0",
       "status": "CLEAR",
       "risk": "Broad bearish alignment",
@@ -438,7 +438,7 @@
     },
     {
       "name": "Deep drawdown",
-      "current_value": "-2.9%",
+      "current_value": "-2.0%",
       "threshold": "<= -10%",
       "status": "CLEAR",
       "risk": "Correction behavior",
@@ -446,12 +446,12 @@
     }
   ],
   "risk_budget": {
-    "gross_target": 75.7,
-    "net_target": 1.7,
-    "long_target": 38.7,
-    "short_target": 37.0,
-    "cash_target": 24.3,
-    "hedge_target": 37.0,
+    "gross_target": 79.7,
+    "net_target": 5.9,
+    "long_target": 42.8,
+    "short_target": 36.9,
+    "cash_target": 20.3,
+    "hedge_target": 36.9,
     "action_board_depth": 0,
     "posture": "Trade selectively"
   },
@@ -460,9 +460,9 @@
       "layer": "index",
       "item": "Trend Pullback Long",
       "direction": "LONG",
-      "trigger_entry": 53204.4939,
-      "pullback_entry": 52851.6898,
-      "failure_level": 52135.3907,
+      "trigger_entry": 53309.6512,
+      "pullback_entry": 53071.9327,
+      "failure_level": 52589.2921,
       "target": 54349.1211,
       "execution_note": "Prefer pullback fill"
     },
@@ -470,20 +470,10 @@
       "layer": "index",
       "item": "Oversold Bounce Long",
       "direction": "LONG",
-      "trigger_entry": 52759.2109,
-      "pullback_entry": 52553.3502,
-      "failure_level": 52135.3907,
-      "target": 53227.0761,
-      "execution_note": "Scale only if tape confirms"
-    },
-    {
-      "layer": "index",
-      "item": "Trend Failure Short",
-      "direction": "SHORT",
-      "trigger_entry": 52915.166,
-      "pullback_entry": 53069.5615,
-      "failure_level": 53383.0312,
-      "target": 51594.1406,
+      "trigger_entry": 53277.0117,
+      "pullback_entry": 53050.0642,
+      "failure_level": 52589.2921,
+      "target": 53699.3969,
       "execution_note": "Scale only if tape confirms"
     },
     {
@@ -491,9 +481,19 @@
       "item": "Volatility Compression Long",
       "direction": "LONG",
       "trigger_entry": 54349.1211,
-      "pullback_entry": 53971.3941,
-      "failure_level": 53204.4939,
+      "pullback_entry": 54006.096,
+      "failure_level": 53309.6512,
       "target": 54349.1211,
+      "execution_note": "Scale only if tape confirms"
+    },
+    {
+      "layer": "index",
+      "item": "Trend Failure Short",
+      "direction": "SHORT",
+      "trigger_entry": 53309.6512,
+      "pullback_entry": 53484.7297,
+      "failure_level": 53840.192,
+      "target": 51594.1406,
       "execution_note": "Scale only if tape confirms"
     }
   ],
@@ -502,7 +502,7 @@
     "benchmark": "S&P 500",
     "config_version": "2026-03-16",
     "strategy_version": "2026.03.16",
-    "generated_at": "2026-08-20T22:29:35Z",
+    "generated_at": "2026-08-21T22:27:02Z",
     "source_health": {
       "index_history_available": true,
       "member_universe_available": false,
@@ -512,38 +512,6 @@
   "research": {
     "chartbook": {
       "price_history": [
-        {
-          "date": "2025-08-15",
-          "close": 44946.12,
-          "ma20": 44445.96,
-          "ma50": 43884.5,
-          "ma200": 42960.3,
-          "drawdown_pct": -0.15
-        },
-        {
-          "date": "2025-08-18",
-          "close": 44911.82,
-          "ma20": 44475.39,
-          "ma50": 43936.34,
-          "ma200": 42972.92,
-          "drawdown_pct": -0.23
-        },
-        {
-          "date": "2025-08-19",
-          "close": 44922.27,
-          "ma20": 44496.38,
-          "ma50": 43979.53,
-          "ma200": 42986.36,
-          "drawdown_pct": -0.2
-        },
-        {
-          "date": "2025-08-20",
-          "close": 44938.31,
-          "ma20": 44492.79,
-          "ma50": 44023.06,
-          "ma200": 43000.35,
-          "drawdown_pct": -0.17
-        },
         {
           "date": "2025-08-21",
           "close": 44785.5,
@@ -2369,195 +2337,199 @@
           "drawdown_pct": -2.29
         },
         {
+          "date": "2026-07-21",
+          "close": 52224.64,
+          "ma20": 52345.12,
+          "ma50": 51311.25,
+          "ma200": 48820.25,
+          "drawdown_pct": -1.57
+        },
+        {
+          "date": "2026-07-22",
+          "close": 52218.58,
+          "ma20": 52372.71,
+          "ma50": 51363.44,
+          "ma200": 48848.75,
+          "drawdown_pct": -1.58
+        },
+        {
           "date": "2026-07-23",
           "close": 51711.65,
-          "ma20": 52319.47,
-          "ma50": 51300.99,
-          "ma200": 48817.69,
+          "ma20": 52365.85,
+          "ma50": 51403.58,
+          "ma200": 48873.51,
           "drawdown_pct": -2.53
         },
         {
           "date": "2026-07-24",
           "close": 51947.25,
-          "ma20": 52333.49,
-          "ma50": 51347.75,
-          "ma200": 48844.83,
+          "ma20": 52367.18,
+          "ma50": 51447.32,
+          "ma200": 48899.78,
           "drawdown_pct": -2.09
         },
         {
           "date": "2026-07-27",
           "close": 52210.08,
-          "ma20": 52351.55,
-          "ma50": 51397.87,
-          "ma200": 48872.08,
+          "ma20": 52383.88,
+          "ma50": 51497.65,
+          "ma200": 48927.81,
           "drawdown_pct": -1.59
         },
         {
           "date": "2026-07-28",
           "close": 52747.32,
-          "ma20": 52392.89,
-          "ma50": 51457.6,
-          "ma200": 48902.35,
+          "ma20": 52412.1,
+          "ma50": 51551.33,
+          "ma200": 48958.54,
           "drawdown_pct": -0.58
         },
         {
           "date": "2026-07-29",
           "close": 51594.14,
-          "ma20": 52378.79,
-          "ma50": 51495.62,
-          "ma200": 48927.3,
+          "ma20": 52375.85,
+          "ma50": 51592.69,
+          "ma200": 48984.72,
           "drawdown_pct": -2.76
         },
         {
           "date": "2026-07-30",
           "close": 52208.06,
-          "ma20": 52380.05,
-          "ma50": 51538.51,
-          "ma200": 48955.33,
+          "ma20": 52370.99,
+          "ma50": 51643.13,
+          "ma200": 49018.36,
           "drawdown_pct": -1.6
+        },
+        {
+          "date": "2026-07-31",
+          "close": 52485.03,
+          "ma20": 52350.24,
+          "ma50": 51705.55,
+          "ma200": 49050.45,
+          "drawdown_pct": -1.08
         },
         {
           "date": "2026-08-03",
           "close": 53178.41,
-          "ma20": 52423.01,
-          "ma50": 51611.56,
-          "ma200": 48989.43,
+          "ma20": 52356.37,
+          "ma50": 51768.93,
+          "ma200": 49084.99,
           "drawdown_pct": 0.0
         },
         {
           "date": "2026-08-04",
           "close": 54085.88,
-          "ma20": 52512.05,
-          "ma50": 51699.55,
-          "ma200": 49032.47,
+          "ma20": 52414.4,
+          "ma50": 51844.94,
+          "ma200": 49124.15,
           "drawdown_pct": 0.0
         },
         {
           "date": "2026-08-05",
           "close": 54349.12,
-          "ma20": 52584.5,
-          "ma50": 51799.26,
-          "ma200": 49073.87,
+          "ma20": 52514.44,
+          "ma50": 51920.33,
+          "ma200": 49166.13,
           "drawdown_pct": 0.0
         },
         {
           "date": "2026-08-06",
           "close": 53885.1,
-          "ma20": 52625.96,
-          "ma50": 51876.77,
-          "ma200": 49111.95,
+          "ma20": 52584.32,
+          "ma50": 51988.8,
+          "ma200": 49204.61,
           "drawdown_pct": -0.85
         },
         {
           "date": "2026-08-07",
           "close": 54036.93,
-          "ma20": 52681.55,
-          "ma50": 51951.8,
-          "ma200": 49150.86,
+          "ma20": 52654.32,
+          "ma50": 52056.65,
+          "ma200": 49241.26,
           "drawdown_pct": -0.57
         },
         {
           "date": "2026-08-10",
           "close": 53975.98,
-          "ma20": 52762.93,
-          "ma50": 52019.72,
-          "ma200": 49190.98,
+          "ma20": 52728.19,
+          "ma50": 52122.79,
+          "ma200": 49276.51,
           "drawdown_pct": -0.69
         },
         {
           "date": "2026-08-11",
           "close": 53791.85,
-          "ma20": 52828.15,
-          "ma50": 52086.33,
-          "ma200": 49228.99,
+          "ma20": 52792.37,
+          "ma50": 52177.98,
+          "ma200": 49312.52,
           "drawdown_pct": -1.03
         },
         {
           "date": "2026-08-12",
           "close": 53770.27,
-          "ma20": 52884.81,
-          "ma50": 52148.85,
-          "ma200": 49264.31,
+          "ma20": 52847.95,
+          "ma50": 52231.8,
+          "ma200": 49347.7,
           "drawdown_pct": -1.07
         },
         {
           "date": "2026-08-13",
           "close": 53839.99,
-          "ma20": 52951.88,
-          "ma50": 52212.27,
-          "ma200": 49298.88,
+          "ma20": 52912.3,
+          "ma50": 52282.45,
+          "ma200": 49380.86,
           "drawdown_pct": -0.94
         },
         {
           "date": "2026-08-14",
           "close": 53732.41,
-          "ma20": 53013.09,
-          "ma50": 52266.27,
-          "ma200": 49334.59,
+          "ma20": 52991.6,
+          "ma50": 52343.36,
+          "ma200": 49411.8,
           "drawdown_pct": -1.13
         },
         {
           "date": "2026-08-17",
           "close": 53459.78,
-          "ma20": 53053.14,
-          "ma50": 52313.88,
-          "ma200": 49368.22,
+          "ma20": 53072.62,
+          "ma50": 52381.31,
+          "ma200": 49440.57,
           "drawdown_pct": -1.64
         },
         {
           "date": "2026-08-18",
           "close": 53343.4,
-          "ma20": 53092.67,
-          "ma50": 52354.6,
-          "ma200": 49398.9,
+          "ma20": 53128.56,
+          "ma50": 52430.84,
+          "ma200": 49469.13,
           "drawdown_pct": -1.85
         },
         {
           "date": "2026-08-19",
           "close": 53463.05,
-          "ma20": 53158.5,
-          "ma50": 52410.11,
-          "ma200": 49428.49,
+          "ma20": 53190.78,
+          "ma50": 52484.39,
+          "ma200": 49498.83,
           "drawdown_pct": -1.63
         },
         {
           "date": "2026-08-20",
           "close": 52759.21,
-          "ma20": 53204.49,
-          "ma50": 52434.06,
-          "ma200": 49453.76,
+          "ma20": 53243.16,
+          "ma50": 52522.13,
+          "ma200": 49524.81,
           "drawdown_pct": -2.93
+        },
+        {
+          "date": "2026-08-21",
+          "close": 53277.01,
+          "ma20": 53309.65,
+          "ma50": 52589.29,
+          "ma200": 49554.52,
+          "drawdown_pct": -1.97
         }
       ],
       "oscillator_history": [
-        {
-          "date": "2025-08-15",
-          "rsi14": 60.4,
-          "volatility_percentile": 55.2,
-          "range_position": 99.1,
-          "momentum_20d": 1.36
-        },
-        {
-          "date": "2025-08-18",
-          "rsi14": 59.8,
-          "volatility_percentile": 55.2,
-          "range_position": 98.6,
-          "momentum_20d": 1.33
-        },
-        {
-          "date": "2025-08-19",
-          "rsi14": 59.9,
-          "volatility_percentile": 54.4,
-          "range_position": 98.8,
-          "momentum_20d": 0.94
-        },
-        {
-          "date": "2025-08-20",
-          "rsi14": 60.2,
-          "volatility_percentile": 42.9,
-          "range_position": 99.0,
-          "momentum_20d": -0.16
-        },
         {
           "date": "2025-08-21",
           "rsi14": 56.8,
@@ -4155,171 +4127,175 @@
           "momentum_20d": 0.53
         },
         {
+          "date": "2026-07-21",
+          "rsi14": 53.3,
+          "volatility_percentile": 3.2,
+          "range_position": 91.2,
+          "momentum_20d": 0.99
+        },
+        {
+          "date": "2026-07-22",
+          "rsi14": 53.3,
+          "volatility_percentile": 3.2,
+          "range_position": 91.2,
+          "momentum_20d": 1.07
+        },
+        {
           "date": "2026-07-23",
-          "rsi14": 45.8,
-          "volatility_percentile": 2.0,
+          "rsi14": 45.7,
+          "volatility_percentile": 6.3,
           "range_position": 85.8,
-          "momentum_20d": -0.0
+          "momentum_20d": -0.26
         },
         {
           "date": "2026-07-24",
-          "rsi14": 49.7,
-          "volatility_percentile": 3.0,
+          "rsi14": 49.3,
+          "volatility_percentile": 7.1,
           "range_position": 88.3,
-          "momentum_20d": 0.54
+          "momentum_20d": 0.05
         },
         {
           "date": "2026-07-27",
-          "rsi14": 53.7,
-          "volatility_percentile": 3.6,
+          "rsi14": 53.0,
+          "volatility_percentile": 8.3,
           "range_position": 91.1,
-          "momentum_20d": 0.7
+          "momentum_20d": 0.64
         },
         {
           "date": "2026-07-28",
-          "rsi14": 60.5,
-          "volatility_percentile": 6.3,
+          "rsi14": 59.6,
+          "volatility_percentile": 12.9,
           "range_position": 96.7,
-          "momentum_20d": 1.59
+          "momentum_20d": 1.08
         },
         {
           "date": "2026-07-29",
           "rsi14": 45.1,
-          "volatility_percentile": 41.5,
+          "volatility_percentile": 53.2,
           "range_position": 84.6,
-          "momentum_20d": -0.54
+          "momentum_20d": -1.39
         },
         {
           "date": "2026-07-30",
-          "rsi14": 52.1,
-          "volatility_percentile": 53.8,
+          "rsi14": 51.8,
+          "volatility_percentile": 60.1,
           "range_position": 91.0,
-          "momentum_20d": 0.05
+          "momentum_20d": -0.19
+        },
+        {
+          "date": "2026-07-31",
+          "rsi14": 54.5,
+          "volatility_percentile": 55.6,
+          "range_position": 94.0,
+          "momentum_20d": -0.78
         },
         {
           "date": "2026-08-03",
-          "rsi14": 60.6,
-          "volatility_percentile": 66.1,
+          "rsi14": 60.5,
+          "volatility_percentile": 62.9,
           "range_position": 100.0,
-          "momentum_20d": 1.64
+          "momentum_20d": 0.23
         },
         {
           "date": "2026-08-04",
-          "rsi14": 66.6,
-          "volatility_percentile": 75.0,
+          "rsi14": 66.7,
+          "volatility_percentile": 70.0,
           "range_position": 100.0,
-          "momentum_20d": 3.4
+          "momentum_20d": 2.19
         },
         {
           "date": "2026-08-05",
           "rsi14": 68.2,
-          "volatility_percentile": 71.0,
+          "volatility_percentile": 65.7,
           "range_position": 100.0,
-          "momentum_20d": 2.74
+          "momentum_20d": 3.82
         },
         {
           "date": "2026-08-06",
           "rsi14": 62.7,
-          "volatility_percentile": 75.4,
-          "range_position": 95.7,
-          "momentum_20d": 1.56
+          "volatility_percentile": 69.4,
+          "range_position": 95.5,
+          "momentum_20d": 2.66
         },
         {
           "date": "2026-08-07",
-          "rsi14": 63.8,
-          "volatility_percentile": 74.6,
+          "rsi14": 63.7,
+          "volatility_percentile": 69.4,
           "range_position": 97.0,
-          "momentum_20d": 2.1
+          "momentum_20d": 2.66
         },
         {
           "date": "2026-08-10",
           "rsi14": 63.0,
-          "volatility_percentile": 68.8,
+          "volatility_percentile": 69.2,
           "range_position": 96.4,
-          "momentum_20d": 3.11
+          "momentum_20d": 2.81
         },
         {
           "date": "2026-08-11",
-          "rsi14": 60.7,
-          "volatility_percentile": 69.0,
+          "rsi14": 60.6,
+          "volatility_percentile": 70.2,
           "range_position": 94.6,
-          "momentum_20d": 2.49
+          "momentum_20d": 2.44
         },
         {
           "date": "2026-08-12",
-          "rsi14": 60.4,
-          "volatility_percentile": 69.0,
-          "range_position": 94.4,
-          "momentum_20d": 2.15
+          "rsi14": 60.3,
+          "volatility_percentile": 70.2,
+          "range_position": 94.1,
+          "momentum_20d": 2.11
         },
         {
           "date": "2026-08-13",
-          "rsi14": 61.1,
-          "volatility_percentile": 69.0,
-          "range_position": 95.1,
-          "momentum_20d": 2.56
+          "rsi14": 61.0,
+          "volatility_percentile": 70.0,
+          "range_position": 94.7,
+          "momentum_20d": 2.45
         },
         {
           "date": "2026-08-14",
-          "rsi14": 59.5,
-          "volatility_percentile": 69.2,
-          "range_position": 94.1,
-          "momentum_20d": 2.33
+          "rsi14": 59.4,
+          "volatility_percentile": 66.9,
+          "range_position": 93.6,
+          "momentum_20d": 3.04
         },
         {
           "date": "2026-08-17",
-          "rsi14": 55.7,
-          "volatility_percentile": 70.4,
-          "range_position": 91.0,
-          "momentum_20d": 1.52
+          "rsi14": 55.5,
+          "volatility_percentile": 66.3,
+          "range_position": 90.7,
+          "momentum_20d": 3.13
         },
         {
           "date": "2026-08-18",
-          "rsi14": 54.0,
-          "volatility_percentile": 70.6,
+          "rsi14": 53.8,
+          "volatility_percentile": 65.5,
           "range_position": 89.5,
-          "momentum_20d": 1.5
+          "momentum_20d": 2.14
         },
         {
           "date": "2026-08-19",
-          "rsi14": 55.5,
-          "volatility_percentile": 68.3,
+          "rsi14": 55.3,
+          "volatility_percentile": 65.5,
           "range_position": 90.7,
-          "momentum_20d": 2.52
+          "momentum_20d": 2.38
         },
         {
           "date": "2026-08-20",
-          "rsi14": 46.4,
-          "volatility_percentile": 74.8,
+          "rsi14": 46.1,
+          "volatility_percentile": 69.8,
           "range_position": 83.4,
-          "momentum_20d": 1.77
+          "momentum_20d": 2.03
+        },
+        {
+          "date": "2026-08-21",
+          "rsi14": 52.4,
+          "volatility_percentile": 72.4,
+          "range_position": 88.8,
+          "momentum_20d": 2.56
         }
       ],
       "breadth_history": [
-        {
-          "date": "2025-08-15",
-          "pct_above_50": null,
-          "pct_above_200": null,
-          "breadth_momentum": null
-        },
-        {
-          "date": "2025-08-18",
-          "pct_above_50": null,
-          "pct_above_200": null,
-          "breadth_momentum": null
-        },
-        {
-          "date": "2025-08-19",
-          "pct_above_50": null,
-          "pct_above_200": null,
-          "breadth_momentum": null
-        },
-        {
-          "date": "2025-08-20",
-          "pct_above_50": null,
-          "pct_above_200": null,
-          "breadth_momentum": null
-        },
         {
           "date": "2025-08-21",
           "pct_above_50": null,
@@ -5689,6 +5665,18 @@
           "breadth_momentum": null
         },
         {
+          "date": "2026-07-21",
+          "pct_above_50": null,
+          "pct_above_200": null,
+          "breadth_momentum": null
+        },
+        {
+          "date": "2026-07-22",
+          "pct_above_50": null,
+          "pct_above_200": null,
+          "breadth_momentum": null
+        },
+        {
           "date": "2026-07-23",
           "pct_above_50": null,
           "pct_above_200": null,
@@ -5720,6 +5708,12 @@
         },
         {
           "date": "2026-07-30",
+          "pct_above_50": null,
+          "pct_above_200": null,
+          "breadth_momentum": null
+        },
+        {
+          "date": "2026-07-31",
           "pct_above_50": null,
           "pct_above_200": null,
           "breadth_momentum": null
@@ -5807,33 +5801,15 @@
           "pct_above_50": null,
           "pct_above_200": null,
           "breadth_momentum": null
+        },
+        {
+          "date": "2026-08-21",
+          "pct_above_50": null,
+          "pct_above_200": null,
+          "breadth_momentum": null
         }
       ],
       "relative_strength_history": [
-        {
-          "date": "2025-08-15",
-          "rs_gap_20d": -1.07,
-          "rs_gap_60d": -3.26,
-          "rs_vs_ma50": -1.12
-        },
-        {
-          "date": "2025-08-18",
-          "rs_gap_20d": -0.95,
-          "rs_gap_60d": -3.05,
-          "rs_vs_ma50": -1.14
-        },
-        {
-          "date": "2025-08-19",
-          "rs_gap_20d": -0.67,
-          "rs_gap_60d": -2.43,
-          "rs_vs_ma50": -0.5
-        },
-        {
-          "date": "2025-08-20",
-          "rs_gap_20d": -0.74,
-          "rs_gap_60d": -2.2,
-          "rs_vs_ma50": -0.2
-        },
         {
           "date": "2025-08-21",
           "rs_gap_20d": 0.1,
@@ -7203,155 +7179,151 @@
           "rs_vs_ma50": 1.45
         },
         {
+          "date": "2026-07-21",
+          "rs_gap_20d": 0.5,
+          "rs_gap_60d": 0.27,
+          "rs_vs_ma50": 1.25
+        },
+        {
+          "date": "2026-07-22",
+          "rs_gap_20d": -0.74,
+          "rs_gap_60d": 1.41,
+          "rs_vs_ma50": 1.3
+        },
+        {
           "date": "2026-07-23",
-          "rs_gap_20d": 0.86,
-          "rs_gap_60d": 0.65,
-          "rs_vs_ma50": 1.61
+          "rs_gap_20d": -0.95,
+          "rs_gap_60d": 1.91,
+          "rs_vs_ma50": 1.46
         },
         {
           "date": "2026-07-24",
-          "rs_gap_20d": -0.09,
-          "rs_gap_60d": 2.07,
-          "rs_vs_ma50": 1.93
+          "rs_gap_20d": -0.69,
+          "rs_gap_60d": 1.88,
+          "rs_vs_ma50": 1.79
         },
         {
           "date": "2026-07-27",
-          "rs_gap_20d": -0.05,
-          "rs_gap_60d": 2.85,
-          "rs_vs_ma50": 2.33
+          "rs_gap_20d": -0.16,
+          "rs_gap_60d": 2.97,
+          "rs_vs_ma50": 2.18
         },
         {
           "date": "2026-07-28",
-          "rs_gap_20d": 0.62,
-          "rs_gap_60d": 3.27,
-          "rs_vs_ma50": 3.05
+          "rs_gap_20d": 1.24,
+          "rs_gap_60d": 3.19,
+          "rs_vs_ma50": 2.88
         },
         {
           "date": "2026-07-29",
-          "rs_gap_20d": -0.03,
-          "rs_gap_60d": 3.07,
-          "rs_vs_ma50": 2.24
+          "rs_gap_20d": 1.06,
+          "rs_gap_60d": 3.04,
+          "rs_vs_ma50": 2.07
         },
         {
           "date": "2026-07-30",
-          "rs_gap_20d": 0.09,
-          "rs_gap_60d": 1.98,
-          "rs_vs_ma50": 1.66
+          "rs_gap_20d": 0.42,
+          "rs_gap_60d": 3.38,
+          "rs_vs_ma50": 1.51
+        },
+        {
+          "date": "2026-07-31",
+          "rs_gap_20d": -0.87,
+          "rs_gap_60d": 3.29,
+          "rs_vs_ma50": 1.25
         },
         {
           "date": "2026-08-03",
-          "rs_gap_20d": 0.29,
-          "rs_gap_60d": 2.31,
-          "rs_vs_ma50": 1.24
+          "rs_gap_20d": -0.61,
+          "rs_gap_60d": 3.35,
+          "rs_vs_ma50": 1.02
         },
         {
           "date": "2026-08-04",
-          "rs_gap_20d": 0.02,
-          "rs_gap_60d": 3.07,
-          "rs_vs_ma50": 1.08
+          "rs_gap_20d": -0.91,
+          "rs_gap_60d": 3.61,
+          "rs_vs_ma50": 0.87
         },
         {
           "date": "2026-08-05",
-          "rs_gap_20d": -0.47,
-          "rs_gap_60d": 3.85,
-          "rs_vs_ma50": 1.65
+          "rs_gap_20d": 0.6,
+          "rs_gap_60d": 5.17,
+          "rs_vs_ma50": 1.45
         },
         {
           "date": "2026-08-06",
-          "rs_gap_20d": -0.73,
-          "rs_gap_60d": 3.28,
-          "rs_vs_ma50": 0.88
+          "rs_gap_20d": 0.46,
+          "rs_gap_60d": 4.4,
+          "rs_vs_ma50": 0.68
         },
         {
           "date": "2026-08-07",
-          "rs_gap_20d": -1.28,
-          "rs_gap_60d": 3.22,
-          "rs_vs_ma50": 0.48
-        },
-        {
-          "date": "2026-08-10",
-          "rs_gap_20d": -0.5,
-          "rs_gap_60d": 4.02,
-          "rs_vs_ma50": 0.37
-        },
-        {
-          "date": "2026-08-11",
-          "rs_gap_20d": 0.04,
-          "rs_gap_60d": 3.97,
+          "rs_gap_20d": 0.25,
+          "rs_gap_60d": 3.77,
           "rs_vs_ma50": 0.28
         },
         {
+          "date": "2026-08-10",
+          "rs_gap_20d": -0.35,
+          "rs_gap_60d": 4.47,
+          "rs_vs_ma50": 0.14
+        },
+        {
+          "date": "2026-08-11",
+          "rs_gap_20d": -0.0,
+          "rs_gap_60d": 4.42,
+          "rs_vs_ma50": 0.06
+        },
+        {
           "date": "2026-08-12",
-          "rs_gap_20d": -0.13,
-          "rs_gap_60d": 3.36,
-          "rs_vs_ma50": -0.08
+          "rs_gap_20d": -0.21,
+          "rs_gap_60d": 3.98,
+          "rs_vs_ma50": -0.31
         },
         {
           "date": "2026-08-13",
-          "rs_gap_20d": -1.22,
-          "rs_gap_60d": 3.58,
-          "rs_vs_ma50": -0.66
+          "rs_gap_20d": -1.07,
+          "rs_gap_60d": 3.01,
+          "rs_vs_ma50": -0.87
         },
         {
           "date": "2026-08-14",
-          "rs_gap_20d": -0.88,
-          "rs_gap_60d": 3.54,
-          "rs_vs_ma50": -0.74
+          "rs_gap_20d": -1.36,
+          "rs_gap_60d": 2.97,
+          "rs_vs_ma50": -0.95
         },
         {
           "date": "2026-08-17",
-          "rs_gap_20d": -0.76,
-          "rs_gap_60d": 3.4,
-          "rs_vs_ma50": -0.78
+          "rs_gap_20d": -0.93,
+          "rs_gap_60d": 2.7,
+          "rs_vs_ma50": -0.97
         },
         {
           "date": "2026-08-18",
-          "rs_gap_20d": -0.59,
-          "rs_gap_60d": 3.46,
-          "rs_vs_ma50": -0.36
+          "rs_gap_20d": -0.29,
+          "rs_gap_60d": 2.78,
+          "rs_vs_ma50": -0.51
         },
         {
           "date": "2026-08-19",
-          "rs_gap_20d": -0.83,
-          "rs_gap_60d": 3.48,
-          "rs_vs_ma50": -0.41
+          "rs_gap_20d": -0.4,
+          "rs_gap_60d": 2.56,
+          "rs_vs_ma50": -0.52
         },
         {
           "date": "2026-08-20",
-          "rs_gap_20d": -0.88,
-          "rs_gap_60d": 2.7,
-          "rs_vs_ma50": -0.89
+          "rs_gap_20d": -1.12,
+          "rs_gap_60d": 2.93,
+          "rs_vs_ma50": -0.98
+        },
+        {
+          "date": "2026-08-21",
+          "rs_gap_20d": -0.98,
+          "rs_gap_60d": 3.15,
+          "rs_vs_ma50": -0.46
         }
       ],
       "signal_family_history": [
-        {
-          "date": "2025-08-15",
-          "regime_shift": null,
-          "breadth_thrust": null,
-          "washout_reversal": null,
-          "volatility_release": -0.05
-        },
-        {
-          "date": "2025-08-18",
-          "regime_shift": null,
-          "breadth_thrust": null,
-          "washout_reversal": null,
-          "volatility_release": -0.09
-        },
-        {
-          "date": "2025-08-19",
-          "regime_shift": null,
-          "breadth_thrust": null,
-          "washout_reversal": null,
-          "volatility_release": -0.15
-        },
-        {
-          "date": "2025-08-20",
-          "regime_shift": null,
-          "breadth_thrust": null,
-          "washout_reversal": null,
-          "volatility_release": -0.03
-        },
         {
           "date": "2025-08-21",
           "regime_shift": null,
@@ -7466,28 +7438,28 @@
         },
         {
           "date": "2025-09-15",
-          "regime_shift": 0.0,
+          "regime_shift": null,
           "breadth_thrust": null,
           "washout_reversal": null,
           "volatility_release": -0.01
         },
         {
           "date": "2025-09-16",
-          "regime_shift": 0.0,
+          "regime_shift": null,
           "breadth_thrust": null,
           "washout_reversal": null,
           "volatility_release": -0.07
         },
         {
           "date": "2025-09-17",
-          "regime_shift": 0.0,
+          "regime_shift": null,
           "breadth_thrust": null,
           "washout_reversal": null,
           "volatility_release": -0.03
         },
         {
           "date": "2025-09-18",
-          "regime_shift": 0.0,
+          "regime_shift": null,
           "breadth_thrust": null,
           "washout_reversal": null,
           "volatility_release": -0.12
@@ -8949,81 +8921,102 @@
           "volatility_release": 0.6
         },
         {
-          "date": "2026-07-23",
-          "regime_shift": -2.0,
-          "breadth_thrust": null,
-          "washout_reversal": null,
-          "volatility_release": 0.58
-        },
-        {
-          "date": "2026-07-24",
-          "regime_shift": -2.0,
-          "breadth_thrust": null,
-          "washout_reversal": null,
-          "volatility_release": 0.57
-        },
-        {
-          "date": "2026-07-27",
+          "date": "2026-07-21",
           "regime_shift": -2.0,
           "breadth_thrust": null,
           "washout_reversal": null,
           "volatility_release": 0.6
         },
         {
+          "date": "2026-07-22",
+          "regime_shift": -2.0,
+          "breadth_thrust": null,
+          "washout_reversal": null,
+          "volatility_release": 0.58
+        },
+        {
+          "date": "2026-07-23",
+          "regime_shift": -2.0,
+          "breadth_thrust": null,
+          "washout_reversal": null,
+          "volatility_release": 0.46
+        },
+        {
+          "date": "2026-07-24",
+          "regime_shift": -2.0,
+          "breadth_thrust": null,
+          "washout_reversal": null,
+          "volatility_release": 0.51
+        },
+        {
+          "date": "2026-07-27",
+          "regime_shift": -1.0,
+          "breadth_thrust": null,
+          "washout_reversal": null,
+          "volatility_release": 0.55
+        },
+        {
           "date": "2026-07-28",
           "regime_shift": 0.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": 0.62
+          "volatility_release": 0.46
         },
         {
           "date": "2026-07-29",
           "regime_shift": -2.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.02
+          "volatility_release": -0.24
         },
         {
           "date": "2026-07-30",
           "regime_shift": -1.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.12
+          "volatility_release": -0.24
+        },
+        {
+          "date": "2026-07-31",
+          "regime_shift": 0.0,
+          "breadth_thrust": null,
+          "washout_reversal": null,
+          "volatility_release": -0.15
         },
         {
           "date": "2026-08-03",
           "regime_shift": 0.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.25
+          "volatility_release": -0.24
         },
         {
           "date": "2026-08-04",
           "regime_shift": 0.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.33
+          "volatility_release": -0.34
         },
         {
           "date": "2026-08-05",
-          "regime_shift": 0.0,
+          "regime_shift": 1.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.3
+          "volatility_release": -0.08
         },
         {
           "date": "2026-08-06",
           "regime_shift": 0.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.29
+          "volatility_release": -0.26
         },
         {
           "date": "2026-08-07",
           "regime_shift": 0.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.35
+          "volatility_release": -0.28
         },
         {
           "date": "2026-08-10",
@@ -9034,59 +9027,66 @@
         },
         {
           "date": "2026-08-11",
-          "regime_shift": 0.0,
+          "regime_shift": 1.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.49
+          "volatility_release": -0.5
         },
         {
           "date": "2026-08-12",
           "regime_shift": 0.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.52
+          "volatility_release": -0.55
         },
         {
           "date": "2026-08-13",
           "regime_shift": 1.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.46
+          "volatility_release": -0.49
         },
         {
           "date": "2026-08-14",
-          "regime_shift": 0.0,
+          "regime_shift": 1.0,
+          "breadth_thrust": null,
+          "washout_reversal": null,
+          "volatility_release": -0.47
+        },
+        {
+          "date": "2026-08-17",
+          "regime_shift": 1.0,
           "breadth_thrust": null,
           "washout_reversal": null,
           "volatility_release": -0.5
         },
         {
-          "date": "2026-08-17",
-          "regime_shift": -1.0,
-          "breadth_thrust": null,
-          "washout_reversal": null,
-          "volatility_release": -0.56
-        },
-        {
           "date": "2026-08-18",
-          "regime_shift": 0.0,
+          "regime_shift": 1.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.55
+          "volatility_release": -0.47
         },
         {
           "date": "2026-08-19",
           "regime_shift": 1.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.49
+          "volatility_release": -0.46
         },
         {
           "date": "2026-08-20",
           "regime_shift": 0.0,
           "breadth_thrust": null,
           "washout_reversal": null,
-          "volatility_release": -0.69
+          "volatility_release": -0.6
+        },
+        {
+          "date": "2026-08-21",
+          "regime_shift": 0.0,
+          "breadth_thrust": null,
+          "washout_reversal": null,
+          "volatility_release": -0.56
         }
       ]
     },
@@ -9095,11 +9095,11 @@
         "setup_key": "trend_pullback_long",
         "direction": "LONG",
         "trades": 53,
-        "win_rate": 0.5472,
-        "average_return": 0.001863,
-        "cumulative_return": 0.098258,
+        "win_rate": 0.5283,
+        "average_return": 0.001361,
+        "cumulative_return": 0.06951,
         "max_drawdown": -0.057279,
-        "quality_score": 63.7,
+        "quality_score": 59.5,
         "verdict": "FAVORABLE"
       },
       {
@@ -9116,23 +9116,23 @@
       {
         "setup_key": "breakout_continuation_long",
         "direction": "LONG",
-        "trades": 28,
-        "win_rate": 0.5357,
-        "average_return": 0.000237,
-        "cumulative_return": 0.005047,
+        "trades": 29,
+        "win_rate": 0.5517,
+        "average_return": 0.00069,
+        "cumulative_return": 0.018469,
         "max_drawdown": -0.049127,
-        "quality_score": 43.8,
+        "quality_score": 47.0,
         "verdict": "FAVORABLE"
       },
       {
         "setup_key": "volatility_compression_long",
         "direction": "LONG",
-        "trades": 22,
-        "win_rate": 0.5,
-        "average_return": -0.000614,
-        "cumulative_return": -0.014638,
+        "trades": 23,
+        "win_rate": 0.5217,
+        "average_return": -7e-06,
+        "cumulative_return": -0.00148,
         "max_drawdown": -0.04449,
-        "quality_score": 36.3,
+        "quality_score": 40.0,
         "verdict": "MIXED"
       },
       {
