@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-04",
+  "as_of": "2026-09-08",
   "market": "S&P 500",
   "data_quality": {
     "index_rows": 1255,
@@ -7,18 +7,18 @@
     "constituent_rows": 78,
     "member_price_columns": 78,
     "member_coverage": 1.0,
-    "generated_at_epoch": 1788565679
+    "generated_at_epoch": 1788825734
   },
   "regime": {
     "bias": "Mixed tactical",
     "posture": "Add on pullbacks",
-    "composite": 3.204,
+    "composite": 3.357,
     "trend_stack": "5/5",
     "vol_bucket": "Compressed volatility",
     "tape": "Near highs / stable",
     "participation": "Mixed participation",
-    "bull_probability": 70.0,
-    "bear_probability": 30.0
+    "bull_probability": 71.0,
+    "bear_probability": 29.0
   },
   "signal_scores": [
     {
@@ -127,24 +127,24 @@
     },
     {
       "key": "breadth_short_term",
-      "raw": "55%",
-      "score": 0.0064,
+      "raw": "56%",
+      "score": 0.0705,
       "label": "MIXED",
       "detail": "Percent of members above the 50 day moving average.",
       "weight": 1.0
     },
     {
       "key": "breadth",
-      "raw": "68%",
-      "score": 0.4316,
+      "raw": "69%",
+      "score": 0.4744,
       "label": "MIXED",
       "detail": "Percent of members above the 200 day moving average.",
       "weight": 2.0
     },
     {
       "key": "breadth_momentum",
-      "raw": "-9.0pp",
-      "score": -0.9267,
+      "raw": "-7.7pp",
+      "score": -0.8352,
       "label": "DETERIORATING",
       "detail": "20 day change in percent above the 200 day moving average.",
       "weight": 1.5
@@ -152,15 +152,15 @@
     {
       "key": "regime_shift",
       "raw": "stack \u039420 +0.0",
-      "score": -0.2294,
+      "score": -0.2111,
       "label": "STABLE",
       "detail": "Change in trend structure, medium-term momentum, and breadth over the last month.",
       "weight": 1.25
     },
     {
       "key": "breadth_event",
-      "raw": "55% / -9.0pp",
-      "score": -0.2301,
+      "raw": "56% / -7.7pp",
+      "score": -0.1912,
       "label": "NEUTRAL",
       "detail": "Breadth thrusts, washout reversals, and internal breakdowns across the member universe.",
       "weight": 1.25
@@ -187,13 +187,13 @@
       "setup_key": "trend_pullback_long",
       "name": "Trend Pullback Long",
       "direction": "LONG",
-      "conviction": 74.4,
-      "suitability": 0.824,
+      "conviction": 74.5,
+      "suitability": 0.827,
       "thesis": "Use pullbacks inside an intact uptrend when price remains in the upper half of its long range.",
       "signal_reasons": [
         "Trend stack remains constructive.",
         "Price is close enough to support for a defined stop.",
-        "Composite backdrop is +3.2/10.",
+        "Composite backdrop is +3.4/10.",
         "Relative strength backdrop is +0.65% over 20d."
       ],
       "entry": 7708.7,
@@ -226,8 +226,8 @@
       "setup_key": "breakout_continuation_long",
       "name": "Breakout Continuation Long",
       "direction": "LONG",
-      "conviction": 65.3,
-      "suitability": 0.658,
+      "conviction": 65.5,
+      "suitability": 0.662,
       "thesis": "Lean into compression near highs when volatility is still subdued and a breakout can expand.",
       "signal_reasons": [
         "Price is near highs.",
@@ -304,8 +304,8 @@
       "setup_key": "breadth_weakness_short",
       "name": "Breadth Weakness Short",
       "direction": "SHORT",
-      "conviction": 55.5,
-      "suitability": 0.263,
+      "conviction": 54.0,
+      "suitability": 0.231,
       "thesis": "Use tactical short exposure when the index is masking internal weakness and participation keeps deteriorating.",
       "signal_reasons": [
         "Participation is narrow.",
@@ -343,8 +343,8 @@
       "setup_key": "oversold_bounce_long",
       "name": "Oversold Bounce Long",
       "direction": "LONG",
-      "conviction": 46.7,
-      "suitability": 0.339,
+      "conviction": 46.8,
+      "suitability": 0.342,
       "thesis": "Capture tactical mean reversion after a controlled pullback rather than a full regime break.",
       "signal_reasons": [
         "RSI is stretched lower.",
@@ -382,8 +382,8 @@
       "setup_key": "breadth_thrust_long",
       "name": "Breadth Thrust Long",
       "direction": "LONG",
-      "conviction": 44.7,
-      "suitability": 0.216,
+      "conviction": 45.5,
+      "suitability": 0.234,
       "thesis": "Press bullish exposure when participation broadens at the same time price is holding trend support.",
       "signal_reasons": [
         "Participation is improving across the universe.",
@@ -472,19 +472,6 @@
       "target": 62.8362
     },
     {
-      "symbol": "APH",
-      "name": "Amphenol",
-      "sector": "Information Technology",
-      "direction": "SHORT",
-      "conviction": 90.0,
-      "diversified_score": 87.0,
-      "setup_key": "constituent_weak_short",
-      "rationale": "Short score 0.90 with ROC20 -51.07%.",
-      "entry": 82.78,
-      "stop": 90.875,
-      "target": 74.685
-    },
-    {
       "symbol": "BIIB",
       "name": "Biogen",
       "sector": "Health Care",
@@ -498,6 +485,32 @@
       "target": 227.276
     },
     {
+      "symbol": "ADSK",
+      "name": "Autodesk",
+      "sector": "Information Technology",
+      "direction": "SHORT",
+      "conviction": 85.7,
+      "diversified_score": 82.7,
+      "setup_key": "constituent_weak_short",
+      "rationale": "Short score 0.86 with ROC20 -12.52%.",
+      "entry": 217.9,
+      "stop": 228.9142,
+      "target": 206.8858
+    },
+    {
+      "symbol": "AZO",
+      "name": "AutoZone",
+      "sector": "Consumer Discretionary",
+      "direction": "SHORT",
+      "conviction": 85.7,
+      "diversified_score": 79.7,
+      "setup_key": "constituent_weak_short",
+      "rationale": "Short score 0.86 with ROC20 -4.60%.",
+      "entry": 2983.29,
+      "stop": 3055.0207,
+      "target": 2911.5594
+    },
+    {
       "symbol": "XYZ",
       "name": "Block, Inc.",
       "sector": "Financials",
@@ -509,19 +522,6 @@
       "entry": 82.76,
       "stop": 79.4751,
       "target": 86.0449
-    },
-    {
-      "symbol": "AZO",
-      "name": "AutoZone",
-      "sector": "Consumer Discretionary",
-      "direction": "SHORT",
-      "conviction": 85.7,
-      "diversified_score": 76.7,
-      "setup_key": "constituent_weak_short",
-      "rationale": "Short score 0.86 with ROC20 -4.60%.",
-      "entry": 2983.29,
-      "stop": 3055.0207,
-      "target": 2911.5594
     }
   ],
   "tripwires": [
@@ -559,7 +559,7 @@
     },
     {
       "name": "Composite collapse",
-      "current_value": "+3.2",
+      "current_value": "+3.4",
       "threshold": "<= -4.0",
       "status": "CLEAR",
       "risk": "Broad bearish alignment",
@@ -575,7 +575,7 @@
     },
     {
       "name": "Breadth breakdown",
-      "current_value": "68%",
+      "current_value": "69%",
       "threshold": "<= 40%",
       "status": "CLEAR",
       "risk": "Internal weakness",
@@ -583,12 +583,12 @@
     }
   ],
   "risk_budget": {
-    "gross_target": 89.5,
-    "net_target": 19.2,
-    "long_target": 54.3,
-    "short_target": 35.1,
-    "cash_target": 10.5,
-    "hedge_target": 35.1,
+    "gross_target": 89.7,
+    "net_target": 20.1,
+    "long_target": 54.9,
+    "short_target": 34.8,
+    "cash_target": 10.3,
+    "hedge_target": 34.8,
     "action_board_depth": 8,
     "posture": "Add on pullbacks"
   },
@@ -675,16 +675,6 @@
     },
     {
       "layer": "constituent",
-      "item": "APH",
-      "direction": "SHORT",
-      "trigger_entry": 82.78,
-      "pullback_entry": 85.4514,
-      "failure_level": 90.875,
-      "target": 74.685,
-      "execution_note": "Best in sector"
-    },
-    {
-      "layer": "constituent",
       "item": "BIIB",
       "direction": "LONG",
       "trigger_entry": 220.83,
@@ -692,6 +682,16 @@
       "failure_level": 214.384,
       "target": 227.276,
       "execution_note": "Best in sector"
+    },
+    {
+      "layer": "constituent",
+      "item": "ADSK",
+      "direction": "SHORT",
+      "trigger_entry": 217.9,
+      "pullback_entry": 221.5347,
+      "failure_level": 228.9142,
+      "target": 206.8858,
+      "execution_note": "Add selectively"
     }
   ],
   "metadata": {
@@ -699,11 +699,11 @@
     "benchmark": "Peer basket",
     "config_version": "2026-03-16",
     "strategy_version": "2026.03.16",
-    "generated_at": "2026-09-04T23:48:00Z",
+    "generated_at": "2026-09-08T00:02:15Z",
     "source_health": {
       "index_history_available": true,
       "member_universe_available": true,
-      "stale_warning": false
+      "stale_warning": true
     }
   },
   "research": {
@@ -5983,7 +5983,7 @@
         },
         {
           "date": "2026-09-01",
-          "pct_above_50": 57.7,
+          "pct_above_50": 59.0,
           "pct_above_200": 69.2,
           "breadth_momentum": -9.0
         },
@@ -5995,15 +5995,15 @@
         },
         {
           "date": "2026-09-03",
-          "pct_above_50": 62.8,
+          "pct_above_50": 64.1,
           "pct_above_200": 73.1,
           "breadth_momentum": -3.8
         },
         {
           "date": "2026-09-04",
-          "pct_above_50": 55.1,
-          "pct_above_200": 67.9,
-          "breadth_momentum": -9.0
+          "pct_above_50": 56.4,
+          "pct_above_200": 69.2,
+          "breadth_momentum": -7.7
         }
       ],
       "relative_strength_history": [
@@ -9260,7 +9260,7 @@
         {
           "date": "2026-09-01",
           "regime_shift": -2.0,
-          "breadth_thrust": -0.3,
+          "breadth_thrust": -0.27,
           "washout_reversal": -0.45,
           "volatility_release": 0.68
         },
@@ -9274,15 +9274,15 @@
         {
           "date": "2026-09-03",
           "regime_shift": 0.0,
-          "breadth_thrust": 0.02,
+          "breadth_thrust": 0.05,
           "washout_reversal": -0.19,
           "volatility_release": 0.62
         },
         {
           "date": "2026-09-04",
           "regime_shift": 0.0,
-          "breadth_thrust": -0.36,
-          "washout_reversal": -0.45,
+          "breadth_thrust": -0.28,
+          "washout_reversal": -0.38,
           "volatility_release": 0.61
         }
       ]
